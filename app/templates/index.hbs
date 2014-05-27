@@ -1,0 +1,22 @@
+{{#each slide in model}}
+  <section {{bind-attr id=slide.title}}>
+    <div class="bcg"
+      data-center="background-position: 50% 50%"
+      data-top-bottom="background-position 50% -100px;"
+      {{bind-attr data-anchor-target="classId"}}
+    >
+      <div class="hsContainer ember-app">
+        
+        <div class="hsContent ember-app"
+            data-center="opacity: 1"
+            data-106-top="opacity: 1"
+            {{bind-attr data-anchor-target="classId"}} 
+          ><h2>
+            {{slide.content}}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+{{/each}}
+
