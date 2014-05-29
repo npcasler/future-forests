@@ -4,15 +4,15 @@
       <div class="navbar-inner">
        <button class="btn-forests pull-left"><span class="glyphicon glyphicon-align-justify" style="font-size:48px; padding-top:15px"></span></button>
        <button class="btn-forests pull-left"><div class="globe-logo"></div></button>
-       <a class="navbar-brand" href="#"><h1>Forest Forecasts</h1></a>
+       {{#link-to "welcome" class="navbar-brand"}}<h1>{{unbound Forests.app_title}}</h1>{{/link-to}}
       
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul id="main-menu" class=nav navbar-nav">
-          <li><a href="#page-references"><h3>References</h3></a></li>
-          <li><a href="#page-methods"><h3>Methods</h3></a></li>
-          <li><a href="#page-about"><h3>About</h3></a></li>
-          <li><a href="#page-climate-change"><h3>Climate Change</h3></a></li>
-          <li><a href="#page-forecasts"><h3>Why Forest Forecasts</h3></a></li> 
+          {{#link-to "highlights" tagName="li"}}<a {{bindAttr href="view.href"}}><h3>Highlights</h3></a>{{/link-to}}
+          <li><a href="#methods"><h3>Methods</h3></a></li>
+          <li><a href="#about"><h3>About</h3></a></li>
+          <li><a href="#climate-change"><h3>Climate Change</h3></a></li>
+          <li><a href="#forecasts"><h3>Why Forest Forecasts</h3></a></li> 
         </ul>
         </div>
       </div>

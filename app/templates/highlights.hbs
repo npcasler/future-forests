@@ -1,0 +1,16 @@
+
+{{#each highlight in controller}}
+  <section {{bind-attr id="highlight.classId"}}>
+    <div class="bcg">
+      <div class="hsContainer">
+        <div class="hsContent">
+          <div class="overlay">
+            <h1>{{highlight.title}}</h1>
+            <h2>{{highlight.content}}</h2>
+          </div>
+      </div>
+    </div>
+  </section>
+{{else}}
+ <li> No highlights... :-{</li>
+{{/each}}

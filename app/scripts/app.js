@@ -1,4 +1,6 @@
-var Forests = window.Forests = Ember.Application.create();
+var Forests = window.Forests = Ember.Application.create({
+  app_title: 'Forest Forecasts'
+});
 
 /* Order and include as you please. */
 require('scripts/controllers/*');
@@ -19,8 +21,8 @@ require('scripts/router');
 }) ( jQuery );
 
 Forests.IndexRoute = Ember.Route.extend({
-  model: function () {
-    return this.store.find('slide');
+  redirect: function() {
+    this.transitionTo('welcome');
   }
 
 });

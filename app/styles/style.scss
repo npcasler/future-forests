@@ -96,38 +96,45 @@ h1 {
   font-size: 48px;
 }
 
-#home .bcg {
-  background-image:url(../images/capitol_drainage.jpg); min-height:1500px;
+#summary .bcg {
+  background-image:url(../images/capitol_drainage.jpg); min-height:1200px;
 }
 
-#page-forecasts{
-  background: url(../images/fall_aspens.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px;
+#forecasts{
+  background: url(../images/fall_aspens.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px; 
 }
 
-#page-climate-change{
-  background: url(../images/dead_trees.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px;
+#climate-change{
+  background: url(../images/dead_trees.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px; 
 }
 
-#page-about{
+#about{
   background: url(../images/aspen_forest.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px;
 }
 
-#page-methods{
-  background: url(../images/new_growth.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px;
+#methods{
+  background: url(../images/new_growth.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px; 
 }
 
-#page-references{
-  background: url(../images/dead_trees_with_plane.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px;
+#references{
+  background: url(../images/dead_trees_with_plane.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px; 
 }
+
+#welcome {
+  background: url(../images/columbine_and_aspen.jpg) 50% 0 no-repeat; background-size: cover; min-height: 1000px; 
+}
+a {cursor: pointer}
+
+
 /* For parallax scrolling */
 .hsContainer {
   display: table;
   table-layout: fixed;
   width: 100%;
-  height: 1000px;
+  height: 1200px;
   overflow: hidden;
   position: relative;
-  opacity: 0;
+  opacity: 1;
 }
 .hsContent {
   max-width: 450px;
@@ -135,6 +142,10 @@ h1 {
   display: table-cell;
   vertical-align: middle;
   color: #ebebeb;
+  height: 50%;
+  width: 80%;
+  z-index: 20;
+  font-size: 48px;
   padding: 0 8%;
   text-align: center;
 }
@@ -156,3 +167,12 @@ div.globe-logo {
   background-repeat: no-repeat;
   background: url(../images/globe_green.png);
 }
+
+.overlay {
+  color: #ebebeb;
+  font-size: 48px;
+  background-color:rgba(0,0,0,0.6);
+  height: 60%;
+  text-align: center;
+  vertical-align: middle;
+}  
