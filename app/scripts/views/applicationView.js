@@ -1,3 +1,3 @@
 Forests.ApplicationView = Ember.View.extend({
-  classNames: ["ember-app"]
+  classNames: ['full-height']
 });

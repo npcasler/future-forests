@@ -107,9 +107,13 @@ module.exports = function (grunt) {
             server: '.tmp'
         },
         jshint: {
+            globals: {
+                $: false
+            },
             options: {
                 jshintrc: '.jshintrc',
-                reporter: require('jshint-stylish')
+                reporter: require('jshint-stylish'),
+                devel: true
             },
             all: [
                 'Gruntfile.js',
@@ -285,7 +289,7 @@ module.exports = function (grunt) {
                         src: [
                             '*.{ico,txt}',
                             '.htaccess',
-                            'images/{,*/}*.{webp,gif}',
+                            'images/**/*',
                             'styles/fonts/*'
                         ]
                     }

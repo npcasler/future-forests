@@ -1,3 +1,5 @@
+{{outlet}}
+<button {{action 'openModal' 'modal' model}}>Open Modal</button>
 {{#each slide in model}}
   <section {{bind-attr id=slide.title}}>
     <div class="bcg"

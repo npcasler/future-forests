@@ -1,5 +1,11 @@
-var Forests = window.Forests = Ember.Application.create({
-  app_title: 'Forest Forecasts'
+var Forests = window.Forests = Ember.Application.createWithMixins({
+  LOG_TRANSITIONS: true,
+  app_title: 'Forest Forecasts',
+  init: function() {
+
+    this.deferReadiness();
+    this._super();
+  }
 });
 
 /* Order and include as you please. */
@@ -23,7 +29,9 @@ require('scripts/router');
 Forests.IndexRoute = Ember.Route.extend({
   redirect: function() {
     this.transitionTo('welcome');
+    //  this.transitionTo('splash');
   }
 
 });
 
+Forests.advanceReadiness();
