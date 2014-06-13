@@ -26,6 +26,8 @@ require('scripts/router');
   });
 }) ( jQuery );
 
+
+
 Forests.IndexRoute = Ember.Route.extend({
   redirect: function() {
     this.transitionTo('welcome');
