@@ -1,0 +1,55 @@
+<div class="bcg screen" id="screen-maps" data-video="http://player.vimeo.com/external/97766233.hd.mp4?s=2f0b495f08bcaa3aa3ac996af32cc3f2">
+  <div class="row full-height">
+    <div class="col-sm-12 map-overlap">
+      <div class="col-md-3 full-height" style="padding-top: 200px;">
+        <div class="form-horizontal" style="width=100%;">
+          <p style="color:white">Step 1: Choose a Species</p>
+          <div class="form-group">
+            <div class="controls">
+             {{view Ember.Select
+                id="plantSelect"
+                contentBinding="controllers.plants.content"
+                optionValuePath="content.sci_name"
+                optionLabelPath="content.name"
+                valueBinding="selectedPlant"
+               
+                prompt="Select a Species"}}
+            </div>
+          </div>
+          <p style="color:white">Step 2: Choose an Climate Scenario</p>
+          <div class="rcp-toolbar btn-group" vertical-align="center">
+            <label for="best-case"><div id="best-case-label"></div>
+              {{view Forests.RadioButton id="best-case" name="rcp-radio" selectionBinding="isSelected" value="rcp26"}}
+             <div class="best-case-label"></div>
+             <h3>Best</h3>
+            </label>
+            <label  for="worst-case">
+              {{view Forests.RadioButton id="worst-case" name="rcp-radio" selectionBinding="isSelected" value="rcp85"}}
+            <div class="worst-case-label"></div>
+            <h3>Worst</h3>
+            </label>
+          </div>
+          <p style="color:white">Step 3: Pick a year</p>
+          <div class="form-group">
+            <button class="btn-text" id="current" {{action "switchCurrent"}} value="2011"><h1>Now</h1></button>
+            <button class="btn-text" id="future" {{action "switchFuture"}} value="2081"><h1>2081</h1></button>
+          </div>
+          <div class="form-group">
+            <!--label for="location" class="col-sm-2 control-label" style="color=white;">Location</label-->
+            <!--input type="text" {{action "geocode" earth target="view"}}-->
+            <div class="col-sm-12">
+              <p style="color:white">Step 4: Get the map</p>
+
+              <button type="submit" class="btn btn-success" {{action 'getMap' target="view.earthInstance"}}>Get Map</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 pull-right" style="min-height: 80%;padding-top:100px;">
+
+        {{view 'earth' viewName="earthInstance"}}
+    </div>
+  </div>
+</div>
+
+

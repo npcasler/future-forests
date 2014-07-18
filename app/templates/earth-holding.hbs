@@ -1,0 +1,61 @@
+<div class="bcg screen" id="screen-earth" data-video="http://player.vimeo.com/external/97766236.hd.mp4?s=dd2f9c6288662107f4cd6b29ac22eda5">
+  <div class="row full-height">
+    <div class="col-sm-12 map-overlap">
+      
+        <div class="col-md-4 full-height" style="margin-top: 200px;">
+        
+          <div class="form-horizontal" style="width=100%;" >
+            <div class="form-group">
+              <div class="controls">
+                {{view Ember.Select
+                  id="mySelect"
+                  contentBinding="categories"
+                  optionValuePath="content.value"
+                  optionLabelPath="content.label"
+                  selectionBinding="category"
+                  value="category.value"}}
+              </div>
+            </div>
+            <div class="btn-group btn-group-lg"  vertical-align="center" id="time">
+              <button class="btn-text active" id="rcp26"><img src="../images/best_case.png" alt="Submit"><h3>Best</h3></button>
+              <button class="btn-text" id="rcp85" ><img src="../images/stable.png" alt="Submit"> <h3>Worst</h3></button>
+            </div>
+            
+              <h3>Rcp Template = {{isSelected}}</h3>
+              <label>
+              {{view Forests.RadioButton name="selectionTest" selectionBinding="isSelected" value="rcp26"}}
+              Best
+              </label>
+              <label>
+              {{view Forests.RadioButton name="selectionTest" selectionBinding="isSelected" value="rcp85"}}
+              Worst
+              </label>
+           
+              <div class="form-group">
+                <button class="btn-text" id="current" value="2011"><h1>Now</h1></button>
+                <button class="btn-text" id="future" value="2081"><h1>2081</h1></button>
+              </div>
+            <div class="form-group">
+              <label for="location" class="col-sm-2 control-label" style="color=white;">Location</label>
+              <div class="col-sm-10">
+                <input type="Location" class="form-control" id="location" name="location" placeholder="Enter a location">
+              </div>
+            </div>
+            {{input type="text" value=text focus-out="geocode"}}
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success" {{action 'getMap'}}>Get Map</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="col-md-8 pull-right">        
+          <div id="map3d"></div>
+        </div>  
+      </div>
+    
+  </div>
+</div>
+

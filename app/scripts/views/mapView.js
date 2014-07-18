@@ -1,5 +1,5 @@
 Forests.MapView = Ember.View.extend({
-  classsName: 'wrapper',
+  className: 'wrapper',
   ge: null,
   geocoder: null,
   didInsertElement: function() {

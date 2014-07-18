@@ -1,0 +1,7 @@
+<div class="btn-group" >
+{{#each content}}
+  <label class="btn btn-default" date-toggle="tooltip" data-placement="bottom" title="Select a Carbon Emission Scenario">
+  {{radio-button value=value selection=view.value}} {{label}}
+  </label>
+{{/each}}
+</div>

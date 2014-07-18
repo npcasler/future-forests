@@ -6,8 +6,9 @@ $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 /* Put your CSS here */
 html, body body > .ember-view, #main{
    /* margin: 50px 0; */
-
+    
     height: 100%;
+    font-size: 14px;
 }
 
 
@@ -15,6 +16,9 @@ html, body body > .ember-view, #main{
   height: 100%
 }
 
+.double-height {
+  height: 150%
+}
 .full {
   height: 100%;
   width: 100%;
@@ -24,10 +28,15 @@ html, body body > .ember-view, #main{
   float: right;
 }
 
+.navbar-simple {
+  height: 100px;
+}
+
 .navbar-simple .navbar-brand {
   padding-top: 15px;
   padding-bottom: 15px;
   color: #118C4E;
+  
 }
 
 .navbar-simple .navbar-inner {
@@ -111,6 +120,10 @@ html, body body > .ember-view, #main{
   color:#bf3604;
 }
 
+.btn-text:active {
+  border: 2px solid white;
+  color: blue;
+}
 
 .navbar-simple .navbar-inner .nav li.active a {
   color: #118C4E;
@@ -125,31 +138,53 @@ p, div {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 200%;
 }
 
-#summary .bcg {
-  background-image:url(../images/capitol_drainage.jpg); 
+.control-label {
+  color: white;
 }
 
-#forecasts{
+#summary  {
+  background: url(../images/capitol_drainage.jpg); 
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#cover-change{
   background: url(../images/fall_aspens.jpg) 50% 0 no-repeat; background-size: cover;  
 }
 
-#climate-change{
+#forest-loss{
   background: url(../images/dead_trees.jpg) 50% 0 no-repeat; background-size: cover; 
 }
 
-#about{
-  background: url(../images/aspen_forest.jpg) 50% 0 no-repeat; background-size: cover; 
+#desert-expansion{
+  background: url(../images/DSC_0360.jpg) 50% 0 no-repeat; background-size: cover; 
 }
 
-#methods{
+#range-change{
   background: url(../images/new_growth.jpg) 50% 0 no-repeat; background-size: cover; 
 }
 
-#references{
+#elevation{
   background: url(../images/dead_trees_with_plane.jpg) 50% 0 no-repeat; background-size: cover; 
+}
+
+#shift {
+  background: url(../images/aspens_with_pine.jpg) 50% 0 no-repeat; background-size: cover;
+}
+
+#services {
+  background: url(../images/meadow.jpg) 50% 0 no-repeat; background-size: cover;
+}
+
+#impacts {
+  background: url(../images/mbp_damage.jpg) 50% 0 no-repeat; background-size: cover;
+}
+
+#biblio {
+  background: url(../images/spruce_bud.jpg) 50% 0 no-repeat; background-size: cover;
 }
 
 #welcome {
@@ -158,6 +193,81 @@ h1 {
 
 #intro {
   background: url(../images/summer_aspens.jpg) 50% 0 no-repeat; background-size: cover;
+}
+
+#screen-welcome {
+  background: url(../images/welcome.jpg) 50% 0 no-repeat; background-size: cover;
+}
+
+#screen-maps {
+  background: url(../images/map.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#screen-about {
+  background: url(../images/about.jpg) 50% 0 no-repeat; background-size: cover;
+}
+
+#screen-methods {
+  background: url(../images/methods.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#screen-intro {
+  background: url(../images/intro.jpg) 50% 0 no-repeat; background-size: cover;
+}
+
+#climate-home { 
+  background: url(../images/image_1.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-overview {
+  background: url(../images/image_2.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-current {
+  background: url(../images/image_3.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-future {
+  background: url(../images/image_4.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-choice {
+  background: url(../images/image_5.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-temp {
+  background: url(../images/image_6.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-precip {
+  background: url(../images/image_7.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-influence {
+  background: url(../images/image_8.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-mortality {
+  background: url(../images/image_10.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-dry {
+  background : url(../images/image_12.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#climate-cite {
+  background: url(../images/image_11.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#method-detail {
+  background: url(../images/image_13.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#desert-increase {
+  background: url(../images/pinyon.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#summary-diff {
+  background: url(../images/IMG_0043_2.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#summary-elev {
+  background: url(../images/DSC_0409.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#summary-impacts {
+  background: url(../images/IMG_0519_2.jpg) 50% 0 no-repeat; background-size: cover;
+}
+#summary-cite {
+  background: url(../images/IMG_0546_2.jpg) 50% 0 no-repeat; background-size: cover;
+}
+.highlight {
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #map3d {
@@ -179,19 +289,22 @@ a {cursor: pointer}
   height: 100%;
   overflow: hidden;
   position: relative;
+  
   vertical-align: middle;
   opacity: 1;
 }
 .hsContent {
-  max-width: 450px;
-  margin: -150px auto 0 auto;
+  
+  margin: 150px auto 0 auto;
   display: table-cell;
+
+  
   vertical-align: middle;
   color: #ebebeb;
-  height: 50%;
+  height: 80%;
   width: 80%;
   z-index: 20;
-  font-size: 48px;
+ 
   padding: 0 8%;
   text-align: center;
 }
@@ -213,6 +326,7 @@ div.globe-logo {
   background-repeat: no-repeat;
   background: url(../images/globe_green.png);
 }
+
 
 .overlay {
   color: #ebebeb;
@@ -375,6 +489,7 @@ iframe-container2 {
   height: 100%;
   width: 100%;
   float: left;
+ 
   overflow: hidden;
 }
 
@@ -459,5 +574,289 @@ iframe-container2 {
   right: 0;
   text-align: center;
   padding-right: 2.5%;
+  vertical-align: center; 
   min-height: 100%;
+}
+
+.rcp-toolbar
+  input[type="radio"] {
+    display: none;
+    
+}
+
+.rcp-toolbar label {
+ /* display:inline-block;*/
+ 
+  font-family: 'BebasNeueRegular', sans-serif!important;
+  font-size: 160%;
+  color: white;
+}
+
+.methods-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: repeat-y;
+  text-align: center;
+  padding-top: 100px;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  font-family: 'BebasNeueRegular', sans-serif!important;
+  font-size: 160%;
+}
+
+
+.ember-select {
+  background: white;
+  width: 240px;
+  padding: 5px;
+  font-size: 20px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.ember-select {
+  width: 240px;
+  height: 34px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+div.best-case-label {
+  
+  content: url(../images/best_case.png) no-repeat;
+}
+
+div.worst-case-label {
+  
+  content: url(../images/stable.png) no-repeat 0 0 ;
+}
+
+div.figure {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.global-temp-and-co2 {
+  text-align: center;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/global_temp_and_co2.png) no-repeat 0 0;
+}
+
+div.average_temp_global {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/3_CS_average_annual_temp_global_V7_cropped.png) no-repeat 0 0;
+}
+
+div.temp_projection {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/4_CS_global_temp_projections_V7.png) no-repeat 0 0;
+}
+
+div.avg_precip {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/5_CS_global_precip_projections_V10.png) no-repeat 0 0;
+}
+div.snow_water {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/7_SW_snow_water.png) no-repeat 0 0;
+}
+div.precip-change {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/6_CS_seasonal_precip_projections_RCP-NO_TITLE_V8.png) no-repeat 0 0;
+}
+div.forest-vulnerable {
+  content: url(../images/8_Forests_climate_envelope_analysis_V3.png) no-repeat 0 0;
+}
+/* Figures for the science summary page*/
+div.forest-cover {
+  content: url(../images/forest-cover-change.jpg) no-repeat 0 0;
+}
+div.atmo-current {
+  content: url(../images/atmo-current.jpg) no-repeat 0 0;
+}
+div.atmo-rcp26 {
+  content: url(../images/atmo-rcp26.jpg) no-repeat 0 0;
+}
+div.atmo-rcp85 {
+  content: url(../images/atmo-rcp85.jpg) no-repeat 0 0;
+}
+div.abies_range {
+  width:150px;
+  margin-left:auto;
+  margin-right:auto;
+  content: url(../images/abies-range.jpg);
+}
+div.eng-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/eng-range.jpg);
+}
+div.cont-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/cont-range.jpg);
+}
+div.glab-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/glab-range.jpg);
+}
+div.ponderosa-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/ponderosa-range.jpg);
+}
+div.jeffrey-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/jeffrey-range.jpg);
+}
+div.pinyon-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/edulis-range.jpg);
+}
+div.menziesii-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/menziesii-range.jpg);
+}
+div.hetero-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/hetero-range.jpg);
+}
+div.aspen-current {
+  content: url(../images/aspen-current.jpg);
+}
+div.aspen26 {
+  content: url(../images/aspen26.jpg);
+}
+div.aspen85 {
+  content: url(../images/aspen85.jpg);
+}
+div.subalpine26 {
+  content: url(../images/subalpine26.jpg);
+}
+div.subalpine85 {
+  content: url(../images/subalpine85.jpg);
+}
+div.arid26 {
+  content: url(../images/arid26.jpg);
+}
+div.arid85 {
+  content: url(../images/arid85.jpg);
+}
+div.habitat {
+  content: url(../images/habitat.jpg);
+}
+div.lemmon-current {
+  content: url(../images/lemmon-current.jpg);
+}
+div.lemmon-26 {
+  content: url(../images/lemmon-26.jpg);
+}
+div.lemmon-85 {
+  content: url(../images/lemmon-85.jpg);
+}
+div.greggii-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/greggii-range.jpg);
+}
+div.tesota-range { 
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/tesota-range.jpg);
+}
+div.gambelii-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/gambelii-range.jpg);
+}
+div.osteo-range {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/osteo-range.jpg);
+}
+div.elev26 {
+  content: url(../images/elev26.jpg);
+}
+div.elev85 {
+  content: url(../images/elev85.jpg);
+}
+div.aces {
+  width:500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/ACES_grey_whole.jpg);
+}
+div.iplant {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/iplant_logo_300.jpg);
+}
+div.ua {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/UAsci.png);
+}
+div.ltrr {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/ltrr.png);
+}
+div.uagist {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/logo01.jpg);
+}
+.bannerContainer {
+  position: absolute;
+  text-align: center;
+  border-style: solid;
+  background: url(../images/river_small.jpg) no-repeat 0 0;
+  color: white;
+  top: 25%;
+  left: 50%;
+  width: 254px;
+  height: 254px;
+  margin-left: -127px; 
+  vertical-align: middle;
+  overflow: hidden;
+  z-index: 3;
 }

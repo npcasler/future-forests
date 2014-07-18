@@ -1,13 +1,18 @@
 Forests.EarthController = Ember.ObjectController.extend({
+  needs: "maps",
+  maps: Ember.computed.alias("controllers.maps"),
   actions: {
-    initCB: function(instance) {
-      ge = instance;
-      ge.getWindow().setVisibility(true);
-
+    changeClass: function() {
+      alert('Changing Class');
+      this.set('isActive', true);
     },
-    failureCB: function(errorCode) {
-      alert('There was an error loading the page: ' + errorCode);
+  },
+    getUrl: function() {
+      var url = this.get('maps').getUrl();
+      console.log(url);
+      return url;
     }
-  }
+  
+  
 });
  

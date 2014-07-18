@@ -1,5 +1,9 @@
 var Forests = window.Forests = Ember.Application.createWithMixins({
   LOG_TRANSITIONS: true,
+  LOG_VIEW_LOOKUP: true,
+  LOG_ACTIVE_GENERATION: true,
+  LOG_BINDINGS: true,
+  LOG_STACKTRACE_ON_DEPRECATION: true,
   app_title: 'Forest Forecasts',
   init: function() {
 
@@ -26,8 +30,11 @@ require('scripts/router');
   });
 }) ( jQuery );
 
-
-
+//(function( $ ) {
+  //init bigVideo
+  //
+//  }) (jQuery);
+ 
 Forests.IndexRoute = Ember.Route.extend({
   redirect: function() {
     this.transitionTo('welcome');
@@ -35,5 +42,21 @@ Forests.IndexRoute = Ember.Route.extend({
   }
 
 });
+/*
+Ember.View.reopen({
+  didInsertElement: function() {
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
+  },
+
+  afterRenderEvent: function() {
+    alert(this.get('videoDiv');
+    //var BV = new $.BigVideo({container: $('.screen')});
+    //BV.init();
+    //alert('#screen-'+this.get('currentPath'));
+    
+    
+    }
+  });*/
 
 Forests.advanceReadiness();

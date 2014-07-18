@@ -1,0 +1,11 @@
+<div class="btn-group">
+  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{{selectedOption.label}}<span class="caret"></span></a>
+
+    <ul class="dropdown-menu">
+      {{#each options}}
+        <li><a href="#" {{action "select" this}}>{{label}}</a></li>
+      {{/each}}
+    </ul>
+  </a>
+</div>
+

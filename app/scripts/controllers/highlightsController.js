@@ -1,4 +1,4 @@
 Forests.HighlightsController = Ember.ArrayController.extend({
-  sortProperties: ['id'],
+  sortProperties: ['orderId'],
   sortAscending: true // false = descending
 });
