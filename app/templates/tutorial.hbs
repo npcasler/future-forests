@@ -1,5 +1,5 @@
-<div class="bcg screen" id="screen-tutorial" data-video="http://player.vimeo.com/external/97766233.hd.mp4?s=2f0b495f08bcaa3aa3ac996af32cc3f2">
-  <div class="row full-height">
+<div class="bcg screen" id="screen-tutorial" data-video="http://player.vimeo.com/external/97766233.hd.mp4?s=2f0b495f08bcaa3aa3ac996af32cc3f2" style="overflow:hidden;">
+  <div class="row full-height" >
     <div class="col-sm-12 map-overlap">
       <div class="col-md-3 full-height" style="padding-top: 200px;">
         <div class="form-horizontal" style="width=100%;">
@@ -8,7 +8,7 @@
             <div class="controls">
              {{view Ember.Select
                 id="plantSelect"
-                contentBinding="controllers.plants.content"
+                contentBinding="controllers.plants.arrangedContent"
                 optionValuePath="content.sci_name"
                 optionLabelPath="content.name"
                 valueBinding="selectedPlant"
@@ -33,33 +33,23 @@
           </div>
           <div class="form-group" id="year-group" style="visibility:hidden">
           <p style="color:white">Step 3: Pick a year</p>
-            <button class="btn-forests" id="current" {{action "switchCurrent"}} value="2011"><h1>Now</h1></button>
-            <button class="btn-forests" id="future" {{action "switchFuture"}} value="2081" {{bindAttr class="isActive:active"}}><h1>2081</h1></button>
+            <button class="btn-control" id="current" {{action "switchCurrent"}} value="2011"><h1>Now</h1></button>
+            <button class="btn-control" id="future" {{action "switchFuture"}} value="2081" {{bindAttr class="isActive:active"}}><h1>2081</h1></button>
           </div>
-          <div class="form-group" id="test-group">
-          <div class="rcp-toolbar btn-group" vertical-align="center">
-          <label for="current-radio">
-          {{view Forests.RadioButton id="current-radio" name="year-radio" selectionBinding="selectedYear" value="2011"}}
-          <h3 id="current-label" class="control-label">Now</h3>
-          </label>
-          <label for="future-radio" style="padding-left:20px">
-          {{view Forests.RadioButton id="future-radio" name="year-radio" selectionBinding="selectedYear" value="2081"}}
-          <h3 id="future-label" class="control-label">2081</h3>
-          </label>
-          </div>
-          </div>
+          
+          
           <div class="form-group" id="submit-group" style="visibility:hidden">
             <!--label for="location" class="col-sm-2 control-label" style="color=white;">Location</label-->
             <!--input type="text" {{action "geocode" earth target="view"}}-->
             <div class="col-sm-12">
               <p style="color:white">Step 4: Get the map</p>
 
-              <button type="submit" class="btn btn-success" {{action 'getMap' target="view.earthInstance"}}>Get Map</button>
+              <button type="submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-8 pull-right" style="min-height: 80%;padding-top:100px;">
+      <div class="col-md-8 pull-right" style="min-height:80%;padding-top:120px;">
 
         {{view 'earth' viewName="earthInstance"}}
     </div>

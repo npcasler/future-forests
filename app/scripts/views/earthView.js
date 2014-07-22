@@ -1,5 +1,5 @@
 Forests.EarthView = Ember.View.extend({
-  tagName: 'wrapper',
+  tagName: '',
   templateName: 'earth',
 
   didInsertElement: function (){
@@ -14,7 +14,7 @@ Forests.EarthView = Ember.View.extend({
     folder80 = this.get('controller').get('folder80');
     networkLink = this.get('controller').get('networkLink');
     networkLink80 = this.get('controller').get('networkLink80');
-    
+      
     geocoder = new window.google.maps.Geocoder();
   },
 
@@ -29,7 +29,17 @@ Forests.EarthView = Ember.View.extend({
     ge.getNavigationControl().setVisibility(ge.VISIBILITY_SHOW);
     ge.getNavigationControl().getScreenXY().setXUnits(ge.UNITS_INSET_PIXELS);
     ge.getNavigationControl().getScreenXY().setYUnits(ge.UNITS_INSET_PIXELS);
-    
+    //add reference layers
+    ge.getLayerRoot().enableLayerById(ge.LAYER_BORDERS, true);
+    ge.getLayerRoot().enableLayerById(ge.LAYER_TERRAIN, true);
+    ge.getOptions().setAtmosphereVisibility(true);
+
+    //center the map
+    var lookAt = ge.createLookAt('');
+    lookAt.setLatitude(38.20935609422089);
+    lookAt.setLongitude(-111.3985201676668);
+    lookAt.setRange(5000000.0);
+    ge.getView().setAbstractView(lookAt);
     //create folders for the various maps to allow for independent opacity values
     
     folderCur = ge.createFolder('');
@@ -48,7 +58,7 @@ Forests.EarthView = Ember.View.extend({
     folder80.setOpacity(0);
     console.log('Loading Maps for Google Earth');
     this.get('controller').addKmlFromUrl('maxent_new/rcp26/2011/abies_lasiocarpa', true, 0);
-    this.get('controller').addKmlFromUrl('maxent_new/rcp26/2081/abies_lasiocarpa', false, 1);
+    this.get('controller').addKmlFromUrl('maxent_new/rcp26/2081/abies_lasiocarpa', true, 1);
   },
 
   failureCB: function(errorCode) {

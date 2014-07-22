@@ -25,12 +25,17 @@ Forests.TutorialController = Ember.ObjectController.extend({
       $('#rcp85-label').css('border', 'none');
    }
   }.observes('selectedRcp'),
-
+  
+  yearSelected: function() {
+    console.log('year selection changed! '  + this.get('selectedYear'));
+      $('#submit-group').css('visibility', 'visible');
+  }.observes('selectedYear'),
   actions: {
     switchCurrent: function() {
       console.log('Current');
       $('#current').css('border', '2px solid #bf3604');
       $('#future').css('border', 'none');
+      this.set('selectedYear', 'current');
 
 
 
@@ -39,6 +44,7 @@ Forests.TutorialController = Ember.ObjectController.extend({
       console.log('Future');
       $('#future').css('border', '2px solid #bf3604');
       $('#current').css('border', 'none');
+      this.set('selectedYear', 'future');
       
     },
   }

@@ -7,11 +7,31 @@ Forests.MapsController = Ember.ObjectController.extend({
   networkLink1: null,
   geocoder: null,
   selectedPlant: null,
-  isSelected: 'rcp26',
+  selectedRcp: null,
+  selectedYear: null,
   radioContent: [
     {label: 'Best', value: 'rcp26'},
     {label: 'Worst', value: 'rcp85'},
   ],
+  
+  plantsSelected: function() {
+    console.log('plant selection changed ' + this.get('selectedPlant'));
+  }.observes('selectedPlant'),
+
+  rcpSelected: function() {
+    console.log('rcp selection has changed! ' + this.get('selectedRcp'));
+    if (this.get('selectedRcp') === 'rcp85') {
+      $('#rcp85-label').css('border', '2px solid #bf3604');
+      $('#rcp26-label').css('border', 'none');
+    } else {
+      $('#rcp26-label').css('border', '2px solid #bf3604');
+      $('#rcp85-label').css('border', 'none');
+    }
+  }.observes('selectedRcp'),
+
+  yearSelected: function() {
+    console.log('year selection changed! ' + this.get('selectedYear'));
+  }.observes('selectedYear'),
   actions: {
     /*getMap: function() {
       console.log("Selected plant is: " + selectedPlant);
@@ -22,12 +42,20 @@ Forests.MapsController = Ember.ObjectController.extend({
     },*/
 
     switchFuture: function() {
+      console.log('Future');
+      $('#future').css('border', '2px solid #bf3604');
+      $('#current').css('border', 'none');
+      this.set('selectedYear', 'future');
       this.kmlFadeOut(folderCur);
       console.log("fading in folder80");
       this.kmlFadeIn(folder80);
     },
 
     switchCurrent: function() {
+      console.log('Current');
+      $('#current').css('border', '2px solid #bf3604');
+      $('#future').css('border', 'none');
+      this.set('selectedYear', 'current');
       this.kmlFadeOut(folder80);
       console.log("fading in current");
       this.kmlFadeIn(folderCur);
@@ -35,7 +63,7 @@ Forests.MapsController = Ember.ObjectController.extend({
     
   },
     getUrl: function() {
-      var Url = '/maxent_new/' + this.get('isSelected') + '/2011/' + this.get('content.sci_name');
+      var Url = '/maxent_new/' + this.get('selectedRcp') + '/2011/' + this.get('content.sci_name');
       return Url;
     },
     
@@ -119,11 +147,15 @@ Forests.MapsController = Ember.ObjectController.extend({
     },
 
     switchLayer: function() {
-      var rcp = this.get('isSelected');
+      var rcp = this.get('selectedRcp');
       var plant = this.get('selectedPlant');
       var years = ['2011', '2081'];
       var urls = [];
-      
+      if (plant === null) {
+        console.log('No plant selected!');
+        $('#plant-desc').addClass('pulse');
+      } else {
+
       console.log("Selected plant is: " + plant);
       console.log(folderCur.getFeatures().getChildNodes().getLength());
       console.log(folder80.getFeatures().getChildNodes().getLength());
@@ -134,6 +166,7 @@ Forests.MapsController = Ember.ObjectController.extend({
         this.addKmlFromUrl(urls[i], false, i);
       }
       console.log('layers loaded.');
+      }
     },
     
 
