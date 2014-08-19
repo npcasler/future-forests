@@ -10,6 +10,7 @@ Forests.ApplicationRoute = Ember.Route.extend({
     },
     actions: {
       openModal: function(modalName) {
+        console.log('OpenModal has been called on '+ modalName);
         return this.render(modalName, {
         into: 'application',
         outlet: 'modal'

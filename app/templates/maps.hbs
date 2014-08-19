@@ -3,7 +3,7 @@
     <div class="col-sm-12 map-overlap">
       <div class="col-md-3 full-height" style="padding-top: 200px;">
         <div class="form-horizontal" style="width=100%;">
-          <p id="plant-desc" style="color:white">Step 1: Choose a Species</p>
+          <p id="plant-desc" style="color:white"><u>Step 1: Choose a Species</u></p>
           <div class="form-group">
             <div class="controls">
              {{view Ember.Select
@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="rcp-toolbar btn-group" vertical-align="center"> 
-          <p style="color:white">Step 2: Choose an Climate Scenario</p>
+          <p id="rcp-desc" style="color:white"><u>Step 2: Choose an Climate Scenario</u></p>
             <label class="rcp-label" id="rcp26-label"for="best-case">
               {{view Forests.RadioButton id="best-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp26"}}
              <div class="best-case-label"></div>
@@ -29,23 +29,26 @@
             <h3>Worst</h3>
             </label>
           </div>
-          <p style="color:white">Step 3: Pick a year</p>
+          <p id="year-desc" style="color:white"><u>Step 3: Pick a year</u></p>
           <div class="form-group">
-            <button class="btn-control" id="current" {{action "switchCurrent"}} value="2011"><h1>Now</h1></button>
-            <button class="btn-control" id="future" {{action "switchFuture"}} value="2081"><h1>2081</h1></button>
+            <button class="btn-control" id="current" {{action "switchCurrent"}} value="2011"><h3>Now</h3></button>
+            <button class="btn-control" id="future" {{action "switchFuture"}} value="2081"><h3>2081</h3></button>
           </div>
           <div class="form-group">
             <!--label for="location" class="col-sm-2 control-label" style="color=white;">Location</label-->
-            <!--input type="text" {{action "geocode" earth target="view"}}-->
+            {{view Ember.TextField   valueBinding="selectedAddress" target="view.earthInstance" style="width:70%;"placeholder="Go to..."}}
+            <button class="btn-control" {{action 'geocode' target='view.earthInstance'}}><i class="glyphicon glyphicon-arrow-right"></i></button>
+          </div>
+          <div class="form-group">
             <div class="col-sm-12">
-              <p style="color:white">Step 4: Get the map</p>
+              <p style="color:white"><u>Step 4: Get the map</u></p>
 
               <button type="submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-8 pull-right" style="min-height: 80%;padding-top:180px;">
+      <div class="col-md-8 full-height pull-right" style="padding-top:120px;">
 
         {{view 'earth' viewName="earthInstance"}}
     </div>

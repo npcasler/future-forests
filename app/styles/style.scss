@@ -35,6 +35,7 @@ html, body body > .ember-view, #main{
 .navbar-simple .navbar-brand {
   padding-top: 15px;
   padding-bottom: 15px;
+  outline: 0;
   color: #118C4E;
   
 }
@@ -102,10 +103,16 @@ html, body body > .ember-view, #main{
 }
 
 @-webkit-keyframes pulse {
-  0% {transform: scale(1);}
-  50% {-webkit-transform: scale(1.5); color: red;}
-  100% {transform: scale(1);}
+  0% {-webkit-transform: scale(1);}
+  50% {-webkit-transform: scale(1.2); color: red;}
+  100% {-webkit-transform: scale(1);}
 }
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.2); color: red;}
+  100%{transform: scale(1);}
+}
+
 .btn-text {
   padding: 20px 15px 15px 15px;
   height: 100%;
@@ -129,6 +136,7 @@ html, body body > .ember-view, #main{
   -moz-box-shadow: none;
   box-shadow: none;
   font-weight: 900;
+  border: none;
   color: red!important;
   
 }
@@ -138,7 +146,7 @@ html, body body > .ember-view, #main{
 }
 
 .btn-text:active {
-  border: 4px solid white;
+  border: none;
 }
 
 .btn-control {
@@ -149,13 +157,15 @@ html, body body > .ember-view, #main{
   border-radius: 0%;
   border: none; 
   color: #fff;
-  letter-spacing: 1px;
+  
   font-weight: 600;
   text-decoration: none !important;
   text-shadow: none;
   text-transform: uppercase;
-  transition: all 0.3s ease-in-out 0s;
-  -webkit-transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .btn-control:hover {
@@ -164,7 +174,8 @@ html, body body > .ember-view, #main{
   -moz-box-shadow: none;
   box-shadow: none;
   font-weight: 900;
-  -webkit-transform: scale(1.1);
+  /*-webkit-transform: scale(1.1);*/
+  /*-moz-transform: scale(1.1);*/
   border: 2px dashed white; 
 }
 
@@ -187,10 +198,14 @@ html, body body > .ember-view, #main{
   font-weight: 700;
   box-sizing: border-box;
   font: -webkit-small-control;
-  transition-duration: 0.3s;
-  transition-property: all;
-  transition-timing-function: ease;
-  
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  top: 0;  
   -webkit-font-smoothing: antialiased;
  }
 
@@ -199,11 +214,14 @@ html, body body > .ember-view, #main{
     background: rgba(0,0,0,0.3);
     font-weight: 900;
     -webkit-background-origin: padding-box;
+    -moz-background-origin: padding-box;
     background-attachment: scroll;
     border: 2px dashed white;
-    -webkit-animation: pulse 1s ease-in-out;
-    -webkit-transform: scale(1.1);
-    z-index: -1;
+    
+    /*-webkit-transform: scale(1.1);*/
+    /*-moz-transform: scale(1,1.1);*/
+     
+    
 }
 
 .btn-map:focus {
@@ -219,10 +237,11 @@ html, body body > .ember-view, #main{
 .rcp-label {
   color: white!important;
   background: none;
+  text-align: center;
   text-transform: uppercase;
   transition-duration: 0.3s;
   transition-property: all;
-  transition-timing-function: ease;
+  transition-timing-function: ease-in;
   font-weight: 500;
 }
 .rcp-label:hover {
@@ -230,11 +249,14 @@ html, body body > .ember-view, #main{
   font-weight: 800;
   border: 2px dashed white;
   -webkit-background-origin: padding-box;
-  -webkit-transform: scale(1.1);
+  -moz-background-origin: padding-box;
+  /*-webkit-transform: scale(1.1);*/
+ /* -moz-transform: scale(1.1);*/
 }
 
 .pulse {
   -webkit-animation: pulse 1s 3;
+  -moz-animation: pulse 1s 3;
 
  }
 .navbar-simple .navbar-inner .nav li.active a {
@@ -720,8 +742,9 @@ iframe-container2 {
 
 
 .ember-select {
-  background: white;
-  width: 240px;
+  background: rgba(0,0,0, 0.3);
+  color: white;
+  width: 300px;
   padding: 5px;
   font-size: 20px;
   line-height: 1;
@@ -732,21 +755,54 @@ iframe-container2 {
   -webkit-appearance: none;
 }
 
-.ember-select {
-  width: 240px;
-  height: 34px;
+.ember-select option {
+  background: transparent;
+  width: 260px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   overflow: hidden;
-  border: 1px solid #ccc;
+  
+}
+
+.ember-text-field {
+  background: rgba(0,0,0, 0.5);
+  color: white;
+  font-size: 20px;
+  line-height: 1;
+  border: 0;
+  width: 70%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.ember-text-field:focus {
+  background: rgba(0,0,0,0.6);
+  -webkit-box-shadow: none;
+  outline: 0;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-weight: 900;
+  -webkit-transform: scale(1.1);
+  border: 2px dashed white; 
 }
 
 div.best-case-label {
-  
-  content: url(../images/best_case.png) no-repeat;
+  height: 70px;
+  width: 70px;
+  content: url(../images/best_case.png) no-repeat 0 0;
 }
 
 div.worst-case-label {
-  
-  content: url(../images/stable.png) no-repeat 0 0 ;
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+  content: url(../images/stable.png) no-repeat 0 0;
 }
 
 div.figure {
@@ -971,4 +1027,8 @@ div.uagist {
   vertical-align: middle;
   overflow: hidden;
   z-index: 3;
+}
+
+.flush--top {
+  margin-top: 0;
 }

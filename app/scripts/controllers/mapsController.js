@@ -1,14 +1,18 @@
 Forests.MapsController = Ember.ObjectController.extend({ 
   needs: ['plants'],
   ge: null,
+  geocoder: null,
   folderCur: null,
   folder80: null,
+  outerraFolder: null,
   networkLink: null,
   networkLink1: null,
+  outerraLink: null,
   geocoder: null,
   selectedPlant: null,
   selectedRcp: null,
   selectedYear: null,
+  selectedAddress: null,
   radioContent: [
     {label: 'Best', value: 'rcp26'},
     {label: 'Worst', value: 'rcp85'},
@@ -32,6 +36,11 @@ Forests.MapsController = Ember.ObjectController.extend({
   yearSelected: function() {
     console.log('year selection changed! ' + this.get('selectedYear'));
   }.observes('selectedYear'),
+
+
+    addressSelected: function() {
+      console.log('address selection changed! ' + this.get('selectedAddress'));
+    }.observes('selectedAddress'),
   actions: {
     /*getMap: function() {
       console.log("Selected plant is: " + selectedPlant);
@@ -40,7 +49,7 @@ Forests.MapsController = Ember.ObjectController.extend({
       
       this.get('earthInstance').getMap();
     },*/
-
+    
     switchFuture: function() {
       console.log('Future');
       $('#future').css('border', '2px solid #bf3604');
@@ -117,9 +126,9 @@ Forests.MapsController = Ember.ObjectController.extend({
         break;
       case 99:
         //reserved for extraneous data (little maps and extinction maps
-        networkLinkRef.setLink(link);
-        networkLinkRef.setFlyToView(flyVar);
-        folderRef.getFeatures().appendChild(networkLinkRef);
+        outerraLink.setLink(link);
+        outerraLink.setFlyToView(flyVar);
+        outerraFolder.getFeatures().appendChild(outerraLink);
         break;
       default:
         console.log('no folderVar supplied. Continuing...');
@@ -129,45 +138,106 @@ Forests.MapsController = Ember.ObjectController.extend({
       }
     },
 
+    addKmzFromUrl: function(kmzUrl) {
+      var link = ge.createLink('');
+      link.setHref('http://scooby.iplantcollaborative.org/' + kmzUrl + '.kmz');
+      outerraLink.setLink(link);
+      outerraFolder.getFeatures().appendChild(outerraLink);
+    },
+
     removeLayers: function() {
-      var folders = [folderCur, folder80];
-      var networkLinks = [networkLink, networkLink1];
+      var folders = [folderCur, folder80, outerraFolder];
+      var networkLinks = [networkLink, networkLink1, outerraLink];
       console.log("Clearing previous layers...");
       for (var i = 0; i < folders.length; i++) {
         console.log(folders[i]);
         console.log(networkLinks[i]);
         console.log("Folder length is: " + folders[i].getFeatures().getChildNodes().getLength());
         if (folders[i].getFeatures().getChildNodes().getLength() > 0) {
-          folderCur.getFeatures().removeChild(networkLinks[i]);
+          folders[i].getFeatures().removeChild(networkLinks[i]);
         } else {
           console.log("No layers to remove from folder. Continuing...");
       }
       } 
       
     },
+    
+    pulseObject: function(varname) {
+      $(String(varname)).removeClass('pulse');
+      setTimeout(
+          function() {
+            console.log('Pulsing ' + varname);
+            $(String(varname)).addClass('pulse');}, 1);
+    },
+            
 
     switchLayer: function() {
       var rcp = this.get('selectedRcp');
       var plant = this.get('selectedPlant');
       var years = ['2011', '2081'];
+      var year = this.get('selectedYear');
       var urls = [];
-      if (plant === null) {
-        console.log('No plant selected!');
-        $('#plant-desc').addClass('pulse');
+      var counter = 0;
+     // var folderCur = this.get('folderCur');
+     // var folder80 = this.get('folder80');
+      //make hash to validate that rcp, plant and year have values
+      var reqObj = {};
+      reqObj['plant'] = plant;
+      reqObj['rcp'] = rcp;
+      reqObj['year'] = year;
+      
+      for ( var k in reqObj) {
+        //check that rcp and plant have been selected 
+        var varname = '#'+k+'-desc';
+        if (reqObj[k] === null) {
+          console.log(varname + " has a null value");
+          this.pulseObject(varname);
+          
+        } else {
+          console.log('Varname is '+ varname + reqObj[k]);
+          //count number of variables with values
+          counter = counter + 1;
+        }
+      };
+      console.log("counter is " + counter);
+      if (rcp !== null && plant !== null) {
+        console.log("Selected plant is: " + plant);
+        console.log("Checking current folder...");
+        console.log(folderCur);
+        console.log(folderCur.getFeatures().getChildNodes().getLength());
+        console.log(folder80.getFeatures().getChildNodes().getLength());
+        this.removeLayers();
+        for (var i=0; i<years.length; i++) {
+          urls.push('tiled/' + rcp +'/'+ years[i] +'/' + plant);
+          console.log(urls[i]);
+          this.addKmlFromUrl(urls[i], false, i);
+        }
+        console.log('layers loaded.');
+        var outerraUrl = 'outerra/' + rcp;
+        console.log('OuterraUrl is ' + 'http://scooby.iplantcollaborative.org/'+outerraUrl+'.kmz');
+        this.addKmzFromUrl(outerraUrl);
       } else {
+        console.log('Missing required variables');
+        console.log(Boolean(counter > 1));
+      }
+      },
 
-      console.log("Selected plant is: " + plant);
-      console.log(folderCur.getFeatures().getChildNodes().getLength());
-      console.log(folder80.getFeatures().getChildNodes().getLength());
-      this.removeLayers();
-      for (var i=0; i<years.length; i++) {
-        urls.push('tiled/' + rcp +'/'+ years[i] +'/' + plant);
-        console.log(urls[i]);
-        this.addKmlFromUrl(urls[i], false, i);
-      }
-      console.log('layers loaded.');
-      }
+    geocode: function() {
+      console.log(geocoder);
+      geocoder.geocode({
+        'address': this.get('selectedAddress')}, function(results, status) {
+          console.log('Geocoding...');
+          if (status == google.maps.GeocoderStatus.OK) {
+            //do something with the result like flying into it
+            var point = results[0].geometry.location;
+            var lookat = ge.createLookAt('');
+            lookat.set(point.lat(), point.lng(), 100, ge.ALTITUDE_RELATIVE_TO_GROUND, 0, 0, 4000);
+          } else {
+            alert("Geocoding error: " + status);
+          }
+        });
     },
+    
     
 
 
