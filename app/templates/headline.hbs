@@ -1,0 +1,26 @@
+<section class="full-height" {{bind-attr id="headline.classId"}}>
+<div class="bcg">
+  <div class="fill-lite">
+    <div class="hsContainer">
+      <div class="hsContent">
+        <h1>{{headline.title}}</h1>
+        <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Learn More  <i class="glyphicon glyphicon-chevron-down"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<div class="detail" {{bind-attr id="headline.detailId"}}>
+  <div class="hsContainer">
+    <div class="hsContent" style="color:black;">
+  <div class="row">
+    <div class="col-md-12">
+      <h2> Detail</h2>
+    </div>
+    
+  </div>
+  {{{headline.detail}}}
+   <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Close <i class="glyphicon glyphicon-chevron-up"></i></button>
+    </div>
+  </div>
+</div>

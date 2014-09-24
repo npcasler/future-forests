@@ -8,112 +8,112 @@ Forests.Plant.FIXTURES =
 [
   {
     id:1,
-    name:"Pacific Silver Fir",
+    name:"Fir, Pacific Silver",
     sci_name:"Abies_amabilis"
   },
   {
     id:2,
-    name:"White Fir",
+    name:"Fir, White",
     sci_name:"Abies_concolor"
   },
   {
     id:3,
-    name:"Grand Fir",
+    name:"Fir, Grand ",
     sci_name:"Abies_grandis"
   },
   {
     id:4,
-    name:"Subalpine Fir",
+    name:"Fir, Subalpine ",
     sci_name:"Abies_lasiocarpa"
   },
   {
     id:5,
-    name:"Red Fir",
+    name:"Fir, Red ",
     sci_name:"Abies_magnifica"
   },
   {
     id:6,
-    name:"Noble Fir",
+    name:"Fir, Noble ",
     sci_name:"Abies_procera"
   },
   {
     id:7,
-    name:"Whitethorn Acacia",
+    name:"Acacia, Whitethorn ",
     sci_name:"Acacia_constricta"
   },
   {
     id:8,
-    name:"Catclaw Acacia",
+    name:"Acacia, Catclaw ",
     sci_name:"Acacia_greggii"
   },
   {
     id:9,
-    name:"Rocky Mountain Maple",
+    name:"Maple, Rocky Mountain ",
     sci_name:"Acer_glabrum"
   },
   {
     id:10,
-    name:"Bigtooth Maple",
+    name:"Maple, Bigtooth ",
     sci_name:"Acer_grandidentatum"
   },
   {
     id:11,
-    name:"Bigleaf Maple",
+    name:"Maple, Bigleaf ",
     sci_name:"Acer_macrophyllum"
   },
   {
     id:12,
-    name:"Boxelder",
+    name:"Maple, Boxelder",
     sci_name:"Acer_negundo"
   },
   {
     id:13,
-    name:"California Buckeye",
+    name:"Buckeye, Cali. ",
     sci_name:"Aesculus_californica"
   },
   {
     id:14,
-    name:"White Alder",
+    name:"Alder, White ",
     sci_name:"Alnus_rhombifolia"
   },
   {
     id:15,
-    name:"Red Alder",
+    name:"Alder, Red ",
     sci_name:"Alnus_rubra"
   },
   {
     id:16,
-    name:"Arizona Madrone",
+    name:"Madrone, AZ ",
     sci_name:"Arbutus_arizonica"
   },
   {
     id:17,
-    name:"Pringle Manzanita",
+    name:"Manzanita, Pringle ",
     sci_name:"Arctostaphylos_pringlei"
   },
   {
     id:18,
-    name:"Pointleaf Manzanita",
+    name:"Manzanita, Pointleaf ",
     sci_name:"Arctostaphylos_pungens"
   },
   {
     id:19,
-    name:"Sand Sagebrush",
+    name:"Sagebrush, Sand ",
     sci_name:"Artemisia_filifolia"
   },
   {
     id:20,
-    name:"Big Sagebrush",
+    name:"Sagebrush, Big ",
     sci_name:"Artemisia_tridentata"
   },
   {
     id:21,
-    name:"Paper Birch",
+    name:"Birch, Paper ",
     sci_name:"Betula_papyrifera"
   },
   {
     id:22,
-    name:"California Incense Cedar",
+    name:"Cedar, Cali. Incense ",
     sci_name:"Calocedrus_decurrens"
   },
   {
@@ -123,37 +123,37 @@ Forests.Plant.FIXTURES =
   },
   {
     id:24,
-    name:"Western Redbud",
+    name:"Redbud, Western ",
     sci_name:"Cercis_occidentalis"
   },
   {
     id:25,
-    name:"Curl-Leaf Mountain Mahogany",
+    name:"Mtn. Mahogany, Curl-Leaf ",
     sci_name:"Cercocarpus_ledifolius"
   },
   {
     id:26,
-    name:"Lawson Cypress",
+    name:"Cypress, Lawson ",
     sci_name:"Chamaecyparis_lawsoniana"
   },
   {
     id:27,
-    name:"Pacific Dogwood",
+    name:"Dogwood, Pacific ",
     sci_name:"Cornus_nuttallii"
   },
   {
     id:28,
-    name:"Arizona Cypress",
+    name:"Cypress, AZ ",
     sci_name:"Cupressus_arizonica"
   },
   {
     id:29,
-    name:"Oregon Ash",
+    name:"Ash, Oregon ",
     sci_name:"Fraxinus_latifolia"
   },
   {
     id:30,
-    name:"Velvet Ash",
+    name:"Ash, Velvet ",
     sci_name:"Fraxinus_velutina"
   },
   {
@@ -163,42 +163,42 @@ Forests.Plant.FIXTURES =
   },
   {
     id:32,
-    name:"Coahuila Juniper",
+    name:"Juniper, Coahuila ",
     sci_name:"Juniperus_coahuilensis"
   },
   {
     id:33,
-    name:"Alligator Juniper",
+    name:"Juniper, Alligator ",
     sci_name:"Juniperus_deppeana"
   },
   {
     id:34,
-    name:"One-Seed Juniper",
+    name:"Juniper, One-Seed ",
     sci_name:"Juniperus_monosperma"
   },
   {
     id:35,
-    name:"Western Juniper",
+    name:"Juniper, Western ",
     sci_name:"Juniperus_occidentalis"
   },
   {
     id:36,
-    name:"Utah Juniper",
+    name:"Juniper, Utah ",
     sci_name:"Juniperus_osteosperma"
   },
   {
     id:37,
-    name:"Rocky Mountain Juniper",
+    name:"Juniper, Rocky Mtn.",
     sci_name:"Juniperus_scopulorum"
   },
   {
     id:38,
-    name:"Alpine Larch",
+    name:"Larch, Alpine",
     sci_name:"Larix_lyallii"
   },
   {
     id:39,
-    name:"Western Larch",
+    name:"Larch, Western ",
     sci_name:"Larix_occidentalis"
   },
   {
@@ -218,92 +218,92 @@ Forests.Plant.FIXTURES =
   },
   {
     id:43,
-    name:"Mexican Palo Verde",
+    name:"Palo Verde, Mexican ",
     sci_name:"Parkinsonia_aculeata"
   },
   {
     id:44,
-    name:"Blue Palo Verde",
+    name:"Palo Verde, Blue ",
     sci_name:"Parkinsonia_florida"
   },
   {
     id:45,
-    name:"Yellow Palo Verde",
+    name:"Palo Verde, Yellow ",
     sci_name:"Parkinsonia_microphylla"
   },
   {
     id:46,
-    name:"Brewer's Spruce",
+    name:"Spruce, Brewer's ",
     sci_name:"Picea_breweriana"
   },
   {
     id:47,
-    name:"Engelmann Spruce",
+    name:"Spruce, Engelmann",
     sci_name:"Picea_engelmannii"
   },
   {
     id:48,
-    name:"Blue Spruce",
+    name:"Spruce, Blue ",
     sci_name:"Picea_pungens"
   },
   {
     id:49,
-    name:"Sitka Spruce",
+    name:"Spruce, Sitka ",
     sci_name:"Picea_sitchensis"
   },
   {
     id:50,
-    name:"Whitebark Pine",
+    name:"Pine, Whitebark ",
     sci_name:"Pinus_albicaulis"
   },
   {
     id:51,
-    name:"Rocky Mountain Bristlecone Pine",
+    name:"Pine, Rocky Mtn. Bristlecone",
     sci_name:"Pinus_aristata"
   },
   {
     id:52,
-    name:"Knobcone Pine",
+    name:"Pine, Knobcone",
     sci_name:"Pinus_attenuata"
   },
   {
     id:53,
-    name:"Mexican Pinyon",
+    name:"Pine, Pinyon, Mexican ",
     sci_name:"Pinus_cembroides"
   },
   {
     id:54,
-    name:"Lodgepole Pine",
+    name:"Pine, Lodgepole",
     sci_name:"Pinus_contorta"
   },
   {
     id:55,
-    name:"Coulter Pine",
+    name:"Pine, Coulter",
     sci_name:"Pinus_coulteri"
   },
   {
     id:56,
-    name:"Colorado Pinyon",
+    name:"Pine, Pinyon, Colorado ",
     sci_name:"Pinus_edulis"
   },
   {
     id:57,
-    name:"Limber Pine",
+    name:"Pine, Limber ",
     sci_name:"Pinus_flexilis"
   },
   {
     id:58,
-    name:"Jeffrey Pine",
+    name:"Pine, Jeffrey ",
     sci_name:"Pinus_jeffreyi"
   },
   {
     id:59,
-    name:"Sugar Pine",
+    name:"Pine, Sugar ",
     sci_name:"Pinus_lambertiana"
   },
   {
     id:60,
-    name:"Chihuahua Pine",
+    name:"Pine, Chihuahua ",
     sci_name:"Pinus_leiophylla"
   },
   {
@@ -313,27 +313,27 @@ Forests.Plant.FIXTURES =
   },
   {
     id:62,
-    name:"Single Leaf Pinyon",
+    name:"Pine, Pinyon, Single Leaf ",
     sci_name:"Pinus_monophylla"
   },
   {
     id:63,
-    name:"Western White Pine",
+    name:"Pine, Western White",
     sci_name:"Pinus_monticola"
   },
   {
     id:64,
-    name:"Ponderosa Pine",
+    name:"Pine, Ponderosa ",
     sci_name:"Pinus_ponderosa"
   },
   {
     id:65,
-    name:"Chihuahua White Pine",
+    name:"Pine, Chihuahua White ",
     sci_name:"Pinus_strobiformis"
   },
   {
     id:66,
-    name:"Eastern Cottonwood",
+    name:"Cottonwood, Eastern ",
     sci_name:"Populus_deltoides"
   },
   {
@@ -343,119 +343,117 @@ Forests.Plant.FIXTURES =
   },
   {
     id:68,
-    name:"Coast Live Oak",
+    name:"Oak, Coast Live ",
     sci_name:"Quercus_agrifolia"
   },
   {
     id:69,
-    name:"Arizona White Oak",
+    name:"Oak, Arizona White",
     sci_name:"Quercus_arizonica"
   },
   {
     id:70,
-    name:"Canyon Live Oak",
+    name:"Oak, Canyon Live",
     sci_name:"Quercus_chrysolepis"
   },
   {
     id:71,
-    name:"Blue Oak",
+    name:"Oak, Blue ",
     sci_name:"Quercus_douglasii"
   },
   {
     id:72,
-    name:"Emory Oak",
+    name:"Oak, Emory ",
     sci_name:"Quercus_emoryi"
   },
   {
     id:73,
-    name:"Gambel Oak",
+    name:"Oak, Gambel ",
     sci_name:"Quercus_gambelii"
   },
   {
     id:74,
-    name:"Oregon White Oak",
+    name:"Oak, Oregon White ",
     sci_name:"Quercus_garryana"
   },
   {
     id:75,
-    name:"Gray Oak",
+    name:"Oak, Gray ",
     sci_name:"Quercus_grisea"
   },
   {
     id:76,
-    name:"Silverleaf Oak",
+    name:"Oak, Silverleaf ",
     sci_name:"Quercus_hypoleucoides"
   },
   {
     id:77,
-    name:"California Black Oak",
+    name:"Oak, California Black ",
     sci_name:"Quercus_kelloggii"
   },
   {
     id:78,
-    name:"Valley Oak",
+    name:"Oak, Valley ",
     sci_name:"Quercus_lobata"
   },
   {
     id:79,
-    name:"Mexican Blue Oak",
+    name:"Oak, Mexican Blue ",
     sci_name:"Quercus_oblongifolia"
   },
   {
     id:80,
-    name:"Palmer Oak",
+    name:"Oak, Palmer ",
     sci_name:"Quercus_palmeri"
   },
   {
     id:81,
-    name:"Netleaf Oak",
+    name:"Oak, Netleaf ",
     sci_name:"Quercus_rugosa"
   },
   {
     id:82,
-    name:"Interior Live Oak",
+    name:"Oak, Interior Live",
     sci_name:"Quercus_wislizeni"
   },
   {
     id:83,
-    name:"New Mexican Locust",
+    name:"Locust, New Mexican",
     sci_name:"Robinia_neomexicana"
   },
   {
     id:84,
-    name:"Giant Sequoia",
+    name:"Sequoia, Giant ",
     sci_name:"Sequoiadendron_giganteum"
   },
   {
     id:85,
-    name:"Coast Redwood",
+    name:"Redwood, Coast ",
     sci_name:"Sequoia_sempervirens"
   },
   {
     id:86,
-    name:"Pacific Yew",
+    name:"Yew, Pacific ",
     sci_name:"Taxus_brevifolia"
   },
   {
     id:87,
-    name:"Western Red Cedar",
+    name:"Cedar, Western Red",
     sci_name:"Thuja_plicata"
   },
   {
     id:88,
-    name:"Western Hemlock",
+    name:"Hemlock, Western ",
     sci_name:"Tsuga_heterophylla"
   },
   {
     id:89,
-    name:"Mountain Hemlock",
+    name:"Hemlock, Mountain ",
     sci_name:"Tsuga_mertensiana"
   },
   {
     id:90,
-    name:"California Bay Laurel",
+    name:"Laurel, California Bay",
     sci_name:"Umbellularia_californica"
   }
 ];
-
-

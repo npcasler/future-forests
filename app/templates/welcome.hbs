@@ -1,23 +1,28 @@
 <div class="bcg screen" id="screen-welcome" data-video="http://player.vimeo.com/external/97766235.hd.mp4?s=7164cf5084a9202595219b22b4506f2f">
-<div class="row full-height">
+<div class="full-height">
+  <div class="slogan-container">
+  <span class="slogan">We face a choice between climate change futures...</span>
+  </div>
   <div class="img-circle bannerContainer">
     <div class="fill-lite">
-  {{#link-to "climate" class="btn-text"}}<h2>CLIMATE<br>CHANGE<br>IMPACTS<br>on<br>FORESTS</h2>{{/link-to}}
+{{#link-to "maps" id="banner-text"}}<br><b>EXPLORE</b><br>FOREST<br>FORECASTS{{/link-to}}
     </div>
   </div>
   <div class="col-md-6 fill-lite left-overlap">
   <div class="hsContainer">
-    <div class="hsContent">
-      {{#link-to "intro" class="btn-text"}}<h1>Intro to FFDM</h1>{{/link-to}}
-      <h2>Learn about our project.</h2>
+    <div class="hsContent" style="padding-top: 175px;">
+      <div class="row">
+      {{#link-to "headlines" class="btn-text" tagName="button"}}About{{/link-to}}
+    </div>
     </div>
   </div>
 </div>
 <div class="col-md-6 fill-dark right-overlap">
 <div class="hsContainer">
-  <div class="hsContent">
-    {{#link-to "earth" class="btn-text"}}<h1>Explore</h1>{{/link-to}}
-    <h2>Skip the introduction and proceed straight to using the model</h2>
+  <div class="hsContent" style="padding-top: 175px;">
+    <div class="row">
+    {{#link-to "method" class="btn-text" tagName="button"}}Methods{{/link-to}}
+    </div>
   </div>
 </div>
 </div>

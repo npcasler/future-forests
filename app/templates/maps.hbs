@@ -1,8 +1,8 @@
-<div class="bcg screen" id="screen-maps" data-video="http://player.vimeo.com/external/97766233.hd.mp4?s=2f0b495f08bcaa3aa3ac996af32cc3f2">
+<div class="bcg screen full" id="screen-maps" data-video="http://player.vimeo.com/external/97766233.hd.mp4?s=2f0b495f08bcaa3aa3ac996af32cc3f2">
   <div class="row full-height">
     <div class="col-sm-12 map-overlap">
-      <div class="col-md-3 full-height" style="padding-top: 200px;">
-        <div class="form-horizontal" style="width=100%;">
+      <div class="col-md-3 full-height" style="padding-top: 10%;">
+        <div class="form-horizontal span8" style="width=100%;">
           <p id="plant-desc" style="color:white"><u>Step 1: Choose a Species</u></p>
           <div class="form-group">
             <div class="controls">
@@ -16,36 +16,59 @@
                 prompt="Select a Species"}}
             </div>
           </div>
-          <div class="rcp-toolbar btn-group" vertical-align="center"> 
+          <div id="rcp-group" class="rcp-toolbar btn-group" style="visibility:hidden; vertical-align:center"> 
           <p id="rcp-desc" style="color:white"><u>Step 2: Choose an Climate Scenario</u></p>
-            <label class="rcp-label" id="rcp26-label"for="best-case">
+          <div class="row" style="margin-bottom: 5px;">
+          <div class="col-sm-6 btn-control" id="rcp26-label">
+            <label class="rcp-label" for="best-case">
               {{view Forests.RadioButton id="best-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp26"}}
              <div class="best-case-label"></div>
-             <h3>Best</h3>
-            </label>
-            <label  id="rcp85-label" class="rcp-label" for="worst-case">
-              {{view Forests.RadioButton id="worst-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp85"}}
-            <div class="worst-case-label"></div>
-            <h3>Worst</h3>
+             Best
             </label>
           </div>
+          <div class="col-sm-6 btn-control" id="rcp85-label">
+            <label  class="rcp-label" for="worst-case">
+              {{view Forests.RadioButton id="worst-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp85"}}
+            <div class="worst-case-label"></div>
+            Worst
+            </label>
+          </div>
+          </div>
+          </div>
+          <br>
+          <div id="year-group" class="form-group btn-group" style="visibility:hidden; vertical-align:center">
           <p id="year-desc" style="color:white"><u>Step 3: Pick a year</u></p>
-          <div class="form-group">
-            <button class="btn-control" id="current" {{action "switchCurrent"}} value="2011"><h3>Now</h3></button>
-            <button class="btn-control" id="future" {{action "switchFuture"}} value="2081"><h3>2081</h3></button>
+          <div class="col-sm-6 btn-control" id="current">
+            <div {{action "switchCurrent"}} value="2011"><h3>Now</h3></div>
+          </div>
+          <div class="col-sm-6 btn-control" id="future">
+            <div {{action "switchFuture"}} value="2081"><h3>2081</h3></div>
+          </div>
+          </div>
+          <div id="submit-group" class="form-group" style="visibility:hidden;">
+            <div class="col-sm-12">
+              <p id="submit-desc" style="color:white"><u>Step 4: Get the map</u></p>
+
+              <button type="submit" id="map-submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <span class="spinner"><i class="glyphicon glyphicon-refresh"></i></span><span class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></span></button>
+            </div>
           </div>
           <div class="form-group">
             <!--label for="location" class="col-sm-2 control-label" style="color=white;">Location</label-->
-            {{view Ember.TextField   valueBinding="selectedAddress" target="view.earthInstance" style="width:70%;"placeholder="Go to..."}}
+            {{input action='geocode' onEvent="enter"  valueBinding="selectedAddress" target='view.earthInstance' style="width:70%;"placeholder="Go to..."}}
             <button class="btn-control" {{action 'geocode' target='view.earthInstance'}}><i class="glyphicon glyphicon-arrow-right"></i></button>
           </div>
-          <div class="form-group">
-            <div class="col-sm-12">
-              <p style="color:white"><u>Step 4: Get the map</u></p>
-
-              <button type="submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <i class="glyphicon glyphicon-arrow-right"></i></button>
-            </div>
-          </div>
+        </div>
+      </div>
+      <div class="col-md-1" style="padding-top: 200px; color: white;">
+        <p><b>Legend</b></p>
+        <div class="row">
+         <p>High</p><div class="oval-high"></div>
+        </div>
+        <div class="row">
+          <h5>Medium</h5><div class="oval-mid"></div>
+        </div>
+        <div class="row">
+          <h5>Low</h5><div class="oval-low"></div>
         </div>
       </div>
       <div class="col-md-8 full-height pull-right" style="padding-top:120px;">

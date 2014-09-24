@@ -2,7 +2,7 @@ Forests.Router.map(function () {
   this.route("splash");
   this.route("welcome", { path: "/"});
   this.route("about", {path: "/about"});
-  this.route('summary', {path: "/summary"});
+  this.route('summary', {path: "/forest-loss"});
   this.resource("highlights", function() {
     this.resource("highlight", { 'path': '/:classId' });
   });
@@ -10,8 +10,13 @@ Forests.Router.map(function () {
   this.resource("maps");
   this.route("earth", { path: "/earth"});
   this.route("method", { path: '/info'});
-  this.route("climate", { path: "/climate"});  
-  this.route("tutorial", { path: "/tutorial"}); 
+
+  this.resource("headlines", {path: '/headlines/:pageId'});
+  
+  
+
+ //   this.resource("headline", { 'path': '/classId' });
+  
   // Add your routes here
 });
 

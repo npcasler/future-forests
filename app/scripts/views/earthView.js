@@ -104,6 +104,17 @@ Forests.EarthView = Ember.View.extend({
       });
     },
 
+    blurMap: function(blur) {
+      console.log('Blurring window for layer load...');
+      if (Boolean(blur)) {
+        //ge.getWindow().setVisibility(false);
+        $('#map-submit').addClass('has-spinner');
+      } else {
+        //ge.getWindow().setVisibility(true);
+        $('#map-submit').removeClass('has-spinner');
+      }
+    },
+
   actions: {
 
     geocode: function()  {
@@ -131,6 +142,7 @@ Forests.EarthView = Ember.View.extend({
     
     getMap: function() {
       console.log('Get Map has been called');
+      this.blurMap(true);
       //console.log(this.get('controller').toString()); 
       //var kmlUrl = this.get('controller').getUrl();
       //var kmlUrl = 'maxout_new/'+ this.get('isSelected') + '/2011/' + this.get('category.value');   
@@ -140,6 +152,7 @@ Forests.EarthView = Ember.View.extend({
       
       //this.get('controller').addKmlFromUrl(kmlUrl, 1, 0);
       console.log('Calling maps for rcp');
+      this.blurMap(false);
     },
 
 

@@ -3,14 +3,37 @@ $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 
 
 
-/* Put your CSS here */
-html, body body > .ember-view, #main{
-   /* margin: 50px 0; */
-    
-    height: 100%;
-    font-size: 14px;
+
+@font-face {
+  font-family: 'Libre Baskerville', serif;
 }
 
+
+
+/* Put your CSS here */
+html, body body > .ember-view, #main{
+   
+        
+    height: 100%;
+    box-sizing: border-box;
+    
+}
+
+body {
+  font-family: 'Libre-Baskerville', serif;  
+}
+
+@media (max-width: 1000px) {
+  body {font-size: large; }
+}
+
+@media (max-width: 500px) {
+  body {font-size: medium; }
+}
+
+*, *:before, *:after{
+  box-sizing: border-box;
+}
 
 .full-height {
   height: 100%
@@ -29,12 +52,17 @@ html, body body > .ember-view, #main{
 }
 
 .navbar-simple {
-  height: 100px;
+  height: 10%;
+  vertical-align: middle;
 }
 
 .navbar-simple .navbar-brand {
-  padding-top: 15px;
+
+  font-family: 'Oswald', sans-serif;
+  margin-top: 1.5%;
+
   padding-bottom: 15px;
+  font-size: 4em;
   outline: 0;
   color: #118C4E;
   
@@ -47,30 +75,50 @@ html, body body > .ember-view, #main{
   -moz-box-shadow: 0 2px 15px rgba(0,0,0,0.25);
   -webkit-box-shadow: 0 2px 15px rgba(0,0,0,0.25);
   border-bottom: 1px solid rgba(0,0,0,0.2);
+  vertical-align: middle;
 }
 
 .navbar-simple .navbar-inner .nav li {
   float: right;
+  
+  
+  
+  
 }
 
-.navbar-simple .navbar-inner .nav li a {
+.navbar-simple .nav > li > a {
+  padding: 20px 15px 20px;
+  line-height: 70px;
+  text-shadow: 0 1px 0 white;
+
+  vertical-align: middle; 
   background: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+ 
+  font-family: 'Oswald', sans-serif;
   color: #777;
-  font-size: 20px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-weight: 600;
+  font-size: 2.3em;
+  padding: 15px;
+  
 }
 
 .navbar-simple .navbar-inner .nav li a:hover {
   background: none;
+  
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
   color: #bf3604;
+}
+
+.navbar-simple .navbar-inner span {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: red;
+  box-shadow: none;
+  font-weight: 500;
 }
 
 .btn-forests {
@@ -97,9 +145,14 @@ html, body body > .ember-view, #main{
   color:#bf3604;
 }
 
-@-webkit-keyframes rotate {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(-360deg);}
+@-webkit-keyframes spin {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+  100% {-moz-transform: rotate(360deg);}
+}
+@keyframes spin {
+  100% {transform: rotate(360deg);}
 }
 
 @-webkit-keyframes pulse {
@@ -107,23 +160,51 @@ html, body body > .ember-view, #main{
   50% {-webkit-transform: scale(1.2); color: red;}
   100% {-webkit-transform: scale(1);}
 }
+@-moz-keyframes pulse {
+  0% {-moz-transform: scale(1);}
+  50% {-moz-transform: scale(1.2); color: red;}
+  100% {-moz-transform: scale(1);}
+}
 @keyframes pulse {
   0% {transform: scale(1);}
   50% {transform: scale(1.2); color: red;}
   100%{transform: scale(1);}
 }
 
+#banner-text {
+  font-family: 'Oswald', 'sans';
+  font-size: 2.4em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align:justify;
+  text-shadow: 2px 2px 4px #000000;
+  border:none;
+  transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+}
+
+#banner-text:hover {
+  color: red;
+  
+  text-decoration: none;
+}
+
 .btn-text {
-  padding: 20px 15px 15px 15px;
+  font-family: 'LibreBaskerville', serif;
+  padding: 20px;
   height: 100%;
-  background: none;
+  background: rgba(0,0,0,0.4);
   background-image: none;
-  border-radius: 0%;
-  border: none; 
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline;
+  border: solid white 1px; 
   color: #fff;
   letter-spacing: 1px;
   font-weight: 600;
-  text-decoration: none !important;
+  font-size: 1.5em;
+  text-align: justify;
   text-shadow: none;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out 0s;
@@ -135,9 +216,10 @@ html, body body > .ember-view, #main{
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  font-weight: 900;
-  border: none;
+  
+  border: dashed white 1px;
   color: red!important;
+  text-decoration: none;
   
 }
 
@@ -150,14 +232,19 @@ html, body body > .ember-view, #main{
 }
 
 .btn-control {
-  padding: 15px 15px 15px 15px;
+  
+  
   height: 100%;
   background: none;
   background-image: none;
   border-radius: 0%;
-  border: none; 
-  color: #fff;
   
+  -webkit-box-shadow: 1px 1px 2px 2px #000;
+  -moz-box-shadow: 1px 1px 2px 2px #000;
+  box-shadow: 1px 1px 2px 2px #000;
+  border: 1px solid white; 
+  color: #fff;
+  font-size: 1.5em; 
   font-weight: 600;
   text-decoration: none !important;
   text-shadow: none;
@@ -173,14 +260,13 @@ html, body body > .ember-view, #main{
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  font-weight: 900;
+  font-weight: 700;
   /*-webkit-transform: scale(1.1);*/
   /*-moz-transform: scale(1.1);*/
   border: 2px dashed white; 
 }
 
 .btn-control:focus {
-  outline: 0;
 }
 
 .btn-control:active {
@@ -232,22 +318,74 @@ html, body body > .ember-view, #main{
   font-weight:900;
   border: 2px solid #bf3604;
   color: #bf3604;
+  cursor: progress;
+}
+
+.spinner{
+  display: inline-block;
+  opacity: 0;
+  width: 0;
+  
+  -webkit-transition: opacity 0.25s, width 0.25s;
+  -moz-transition: opacity 0.25s, width 0.25s;
+  -o-transition: opacity 0.25s, width 0.25s;
+  transition: opacity 0.25s, width 0.25s;
+}
+
+.arrow{
+  display: inline-block;
+  opacity: 1;
+  width: auto;
+
+  -webkit-transition: opacity 0s, width 0s;
+  -moz-transition: opacity 0s, width 0s;
+  -o-transition: opacity 0s, width 0s;
+  transition: opacity 0s, width 0s;
+}
+  
+
+.has-spinner {
+  cursor: progress;
+}
+
+.has-spinner .spinner {
+  opacity: 1;
+  width: auto;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  
+}
+
+.has-spinner .arrow {
+  opacity: 0;
+  width: 0;
+}
+
+.spinThis {
+  opacity: 1;
+  width: auto;
+  -webkit-animation: spin 4s infinite;
+  -moz-animation: spin 4s infinite;
+  
 }
 
 .rcp-label {
   color: white!important;
   background: none;
+  padding: 5px;
   text-align: center;
   text-transform: uppercase;
+  
   transition-duration: 0.3s;
   transition-property: all;
   transition-timing-function: ease-in;
+  
   font-weight: 500;
 }
 .rcp-label:hover {
-  background: rgba(0,0,0,0.3);
+  
   font-weight: 800;
-  border: 2px dashed white;
+  
   -webkit-background-origin: padding-box;
   -moz-background-origin: padding-box;
   /*-webkit-transform: scale(1.1);*/
@@ -255,25 +393,29 @@ html, body body > .ember-view, #main{
 }
 
 .pulse {
-  -webkit-animation: pulse 1s 3;
-  -moz-animation: pulse 1s 3;
+  -webkit-animation: pulse 1s 2;
+  -moz-animation: pulse 1s 2;
+
 
  }
+.pulseOnce {
+  -webkit-animation: pulse 1s 1;
+  -moz-animation: pulse 1s 1;
+}
 .navbar-simple .navbar-inner .nav li.active a {
   color: #118C4E;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'BebasNeueRegular', sans-serif!important;
+h1, h2, .h1, .h2  {
+  font-family: 'Oswald', sans-serif;
+  text-shadow: 2px 2px 4px #000000;
 }
 
-p, div {
-  font-family: 'BebasNeueRegular', sans-serif!important;
+h3, h4, h5, h6, p, div {
+  font-family: 'Libre Baskerville', serif!important;
 }
 
-h1 {
-  font-size: 200%;
-}
+
 
 .control-label {
   color: white;
@@ -287,117 +429,183 @@ h1 {
 
 #cover-change{
   background: url(../images/fall_aspens.jpg) 50% 0 no-repeat; background-size: cover;  
+  background-attachment: fixed;
 }
 
 #forest-loss{
   background: url(../images/dead_trees.jpg) 50% 0 no-repeat; background-size: cover; 
+  background-attachment:fixed;
 }
 
 #desert-expansion{
   background: url(../images/DSC_0360.jpg) 50% 0 no-repeat; background-size: cover; 
+  background-attachment: fixed;
 }
 
 #range-change{
-  background: url(../images/new_growth.jpg) 50% 0 no-repeat; background-size: cover; 
+  background: url(../images/new_growth.jpg) 50% 0 no-repeat; background-size: cover;  
+  background-attachment: fixed;
 }
 
 #elevation{
   background: url(../images/dead_trees_with_plane.jpg) 50% 0 no-repeat; background-size: cover; 
+  background-attachment: fixed;
 }
 
 #shift {
   background: url(../images/aspens_with_pine.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 
 #services {
   background: url(../images/meadow.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 
 #impacts {
   background: url(../images/mbp_damage.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 
 #biblio {
   background: url(../images/spruce_bud.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 
 #welcome {
   background: url(../images/columbine_and_aspen.jpg) 50% 0 no-repeat; background-size: cover; 
+  background-attachment: fixed;
 }
 
 #intro {
   background: url(../images/summer_aspens.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 
 #screen-welcome {
   background: url(../images/welcome.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 
 #screen-maps {
   background: url(../images/map.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #screen-about {
   background: url(../images/about.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 
 #screen-methods {
   background: url(../images/methods.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #screen-intro {
   background: url(../images/intro.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 
 #climate-home { 
   background: url(../images/image_1.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-overview {
   background: url(../images/image_2.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-current {
   background: url(../images/image_3.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-future {
   background: url(../images/image_4.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-choice {
   background: url(../images/image_5.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-temp {
   background: url(../images/image_6.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-precip {
   background: url(../images/image_7.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-influence {
   background: url(../images/image_8.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-mortality {
   background: url(../images/image_10.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-dry {
   background : url(../images/image_12.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #climate-cite {
   background: url(../images/image_11.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #method-detail {
   background: url(../images/image_13.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #desert-increase {
   background: url(../images/pinyon.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #summary-diff {
   background: url(../images/IMG_0043_2.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #summary-elev {
   background: url(../images/DSC_0409.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #summary-impacts {
   background: url(../images/IMG_0519_2.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
 #summary-cite {
   background: url(../images/IMG_0546_2.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
 }
+
+#lost-main {
+  background: url(../images/DSC_0386.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+#lost-summary {
+  background: url(../images/DSC_3038.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+#lost-humanity{
+  background: url(../images/DSC_4443.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+#lost-three{
+  background: url(../images/IMG_0515_2.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+#lost-fire {
+  background: url(../images/intro.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+#lost-water {
+  background: url(../images/DSC_9838.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+#lost-climate {
+  background: url(../images/IMG_1497.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+#lost-references {
+  background: url(../images/IMG_8017.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
 .highlight {
   background-position: 50% 50%;
   background-size: cover;
@@ -406,11 +614,12 @@ h1 {
 
 #map3d {
   z-index: -5;
-  
+  position: absolute; 
   width: 100%;
   float: right;
   height: auto;
 }
+
 
 a {cursor: pointer}
 
@@ -445,7 +654,7 @@ a {cursor: pointer}
 .bcg {
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /*background-attachment: fixed;*/
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -464,7 +673,7 @@ div.globe-logo {
 
 .overlay {
   color: #ebebeb;
-  font-size: 48px;
+  font-size: 2em;
   background-color:rgba(0,0,0,0.6);
   height: 60%;
   text-align: center;
@@ -479,7 +688,7 @@ div.globe-logo {
 
 .fill-dark { 
   height: 100%;
-  background-color:rgba(0,0,0,0.6);
+  background-color:rgba(191,84,48,0.4);
 }
 
 #splash {
@@ -549,7 +758,7 @@ div.globe-logo {
 .sidebar-nav > sidebar-brand {
   height: 55px;
   line-height: 55px;
-  font-size: 18px;
+  
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -684,7 +893,7 @@ iframe-container2 {
   top: 0;
   left: 0;
   text-align: center;
-  padding: 10%;
+  padding: 20%;
   min-height: 100%;
 }
 
@@ -695,7 +904,7 @@ iframe-container2 {
   top: 0;
   right: 0;
   text-align: center;
-  padding: 10%;
+  padding: 20%;
   min-height: 100%;
 }
 
@@ -721,8 +930,8 @@ iframe-container2 {
 .rcp-toolbar label {
  /* display:inline-block;*/
  
-  font-family: 'BebasNeueRegular', sans-serif!important;
-  font-size: 160%;
+  font-family: 'Libre Baskerville', serif;
+  
   color: white;
 }
 
@@ -746,7 +955,7 @@ iframe-container2 {
   color: white;
   width: 300px;
   padding: 5px;
-  font-size: 20px;
+  font-size: 1em;
   line-height: 1;
   border: 0;
   border-radius: 0;
@@ -759,7 +968,7 @@ iframe-container2 {
   background: transparent;
   width: 260px;
   padding: 5px;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 1;
   border: 0;
   border-radius: 0;
@@ -772,7 +981,7 @@ iframe-container2 {
 .ember-text-field {
   background: rgba(0,0,0, 0.5);
   color: white;
-  font-size: 20px;
+  font-size: 1em;
   line-height: 1;
   border: 0;
   width: 70%;
@@ -794,15 +1003,19 @@ iframe-container2 {
 div.best-case-label {
   height: 70px;
   width: 70px;
-  content: url(../images/best_case.png) no-repeat 0 0;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/best_case_red.png) no-repeat 0 0;
 }
 
 div.worst-case-label {
   height: 70px;
+  width: 70px;
+  padding: 5px;
   margin-left: auto;
   margin-right: auto;
-  width: 70px;
-  content: url(../images/stable.png) no-repeat 0 0;
+  content: url(../images/stable_red.png) no-repeat 0 0;
 }
 
 div.figure {
@@ -1011,7 +1224,7 @@ div.uagist {
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/logo01.jpg);
+  content: url(../images/uagist.png);
 }
 .bannerContainer {
   position: absolute;
@@ -1019,7 +1232,7 @@ div.uagist {
   border-style: solid;
   background: url(../images/river_small.jpg) no-repeat 0 0;
   color: white;
-  top: 25%;
+  top: 35%;
   left: 50%;
   width: 254px;
   height: 254px;
@@ -1029,6 +1242,69 @@ div.uagist {
   z-index: 3;
 }
 
+.slogan-container {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-family: 'Libre Baskerville' serif;
+  border: none;
+  color: white;
+  top: 15%;
+  font-size: 3em;
+  text-shadow: 3px 3px 4px #000000;
+  vertical-align: middle;
+  z-index:10;
+}
+.slogan {
+  display: inline-block;
+}
+
 .flush--top {
   margin-top: 0;
+}
+
+.detail {
+  max-height: 0;
+  overflow: hidden;
+  background: white;  
+  text-align: center;
+  width: 100%;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.oval-high {
+  width: 30px;
+  height: 15px;
+  background: rgb(0,70,0);
+  -moz-border-radius: 30px/15px;
+  -webkit-border-radius: 30px/15px;
+  border-radius: 30px/15px;
+}
+
+.circle { shape-inside: circle(20px at 50% 50%); 
+        background: rgb(0,185,0);
+        float: left;
+}
+
+
+.oval-mid {
+  background: rgb(0,110,0);
+  width: 30px;
+  height: 15px;
+  
+  -moz-border-radius: 30px/15px;
+  -webkit-border-radius: 30px/15px;
+  border-radius: 30px/15px;
+}
+
+.oval-low {
+  background: rgb(0,185,0);
+  width: 30px;
+  height: 15px;
+  
+  -moz-border-radius: 30px/15px;
+  -webkit-border-radius: 30px/15px;
+  border-radius: 30px/15px;
 }

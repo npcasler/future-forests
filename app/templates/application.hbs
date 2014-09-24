@@ -1,17 +1,19 @@
-<div id="main">
-  <div class="col-md-12 full">
+<div id="main" class="container-fluid">
+  <div class="full">
     <nav class="navbar navbar-simple navbar-fixed-top" role="navigation">
       <div class="navbar-inner">
         
         {{#link-to "maps" class="btn-forests pull-left"}}<div class="globe-logo"></div>{{/link-to}}
-        {{#link-to "welcome" class="navbar-brand"}}<h1>{{unbound Forests.app_title}}</h1>{{/link-to}}
+        {{#link-to "welcome" class="navbar-brand"}}{{unbound Forests.app_title}}{{/link-to}}
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul id="main-menu" class="nav ">
-            {{#link-to "summary" tagName="li"}}<a {{bind-attr href="view.href"}}><h3>Summary</h3></a>{{/link-to}}
-            {{#link-to "method" tagName="li"}}<a {{bind-attr href="view.href"}}><h3>Methods</h3></a>{{/link-to}}
-            {{#link-to "about" tagName="li"}}<a {{bind-attr href="view.href"}}><h3>About</h3></a>{{/link-to}}
-            {{#link-to "climate" tagName="li"}}<a {{bind-attr href="view.href"}}><h3>Climate Change</h3></a>{{/link-to}}
+     
+            {{#link-to "headlines" "lost" tagName="li"}}<a {{bind-attr href="view.href"}}>Lost Services</a>{{/link-to}}
+            <li><h3><span class="glyphicon glyphicon-chevron-right"></span></h3></li>
+            {{#link-to "headlines" "forest"tagName="li"}}<a {{bind-attr href="view.href"}}>Forest Loss</a>{{/link-to}}
+            <li><h3><span class="glyphicon glyphicon-chevron-right"></span></h3></li>
+            {{#link-to "headlines" "climate" tagName="li"}}<a {{bind-attr href="view.href"}}>Climate Change</a>{{/link-to}}
           </ul>
         </div>
       </div>

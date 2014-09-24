@@ -20,27 +20,38 @@ Forests.MapsController = Ember.ObjectController.extend({
   
   plantsSelected: function() {
     console.log('plant selection changed ' + this.get('selectedPlant'));
+    $('#rcp-group').css('visibility', 'visible');
+    this.remindSubmit();
   }.observes('selectedPlant'),
 
   rcpSelected: function() {
     console.log('rcp selection has changed! ' + this.get('selectedRcp'));
+    $('#year-group').css('visibility', 'visible');
     if (this.get('selectedRcp') === 'rcp85') {
       $('#rcp85-label').css('border', '2px solid #bf3604');
-      $('#rcp26-label').css('border', 'none');
+      $('#rcp26-label').css('border', '1px solid white');
     } else {
       $('#rcp26-label').css('border', '2px solid #bf3604');
-      $('#rcp85-label').css('border', 'none');
+      $('#rcp85-label').css('border', '1px solid white');
     }
+    this.remindSubmit();
   }.observes('selectedRcp'),
 
   yearSelected: function() {
     console.log('year selection changed! ' + this.get('selectedYear'));
+    $('#submit-group').css('visibility', 'visible');
   }.observes('selectedYear'),
 
 
     addressSelected: function() {
       console.log('address selection changed! ' + this.get('selectedAddress'));
     }.observes('selectedAddress'),
+
+    kmlLoadComplete: function(kmlUrl) {
+      console.log("Kml finished loading. Url is " + kmlUrl);
+    },
+   
+
   actions: {
     /*getMap: function() {
       console.log("Selected plant is: " + selectedPlant);
@@ -53,7 +64,7 @@ Forests.MapsController = Ember.ObjectController.extend({
     switchFuture: function() {
       console.log('Future');
       $('#future').css('border', '2px solid #bf3604');
-      $('#current').css('border', 'none');
+      $('#current').css('border', '1px solid white');
       this.set('selectedYear', 'future');
       this.kmlFadeOut(folderCur);
       console.log("fading in folder80");
@@ -63,7 +74,7 @@ Forests.MapsController = Ember.ObjectController.extend({
     switchCurrent: function() {
       console.log('Current');
       $('#current').css('border', '2px solid #bf3604');
-      $('#future').css('border', 'none');
+      $('#future').css('border', '1px solid white');
       this.set('selectedYear', 'current');
       this.kmlFadeOut(folder80);
       console.log("fading in current");
@@ -111,8 +122,8 @@ Forests.MapsController = Ember.ObjectController.extend({
     
     
     addKmlFromUrl: function(kmlUrl, flyVar, folderVar) {
-      console.log(ge);
-      console.log(geocoder);
+      console.log(ge.getPluginVersion());
+      
       var link = ge.createLink('');
       link.setHref('http://scooby.iplantcollaborative.org/' + kmlUrl + '/doc.kml');
       console.log('http://scooby.iplantcollaborative.org/' + kmlUrl + '/doc.kml');
@@ -136,13 +147,16 @@ Forests.MapsController = Ember.ObjectController.extend({
         networkLink.setFlyToView(flyVar);
         folderCur.getFeatures().appendChild(networkLink);
       }
+      
     },
 
     addKmzFromUrl: function(kmzUrl) {
       var link = ge.createLink('');
       link.setHref('http://scooby.iplantcollaborative.org/' + kmzUrl + '.kmz');
-      outerraLink.setLink(link);
-      outerraFolder.getFeatures().appendChild(outerraLink);
+      console.log("Loading kmz from " + kmzUrl);
+      console.log(link);
+      //outerraLink.setLink(link);
+      //outerraFolder.getFeatures().appendChild(outerraLink);
     },
 
     removeLayers: function() {
@@ -168,6 +182,20 @@ Forests.MapsController = Ember.ObjectController.extend({
           function() {
             console.log('Pulsing ' + varname);
             $(String(varname)).addClass('pulse');}, 1);
+    },
+    
+    remind: function(varname) {
+      $(String(varname)).removeClass('pulseOnce');
+      setTimeout(
+          function() {
+            console.log('PulseOnce ' + varname);
+            $(String(varname)).addClass('pulseOnce');}, 1);
+    },
+
+    remindSubmit: function() {
+      if (this.get('selectedYear') !== null) {
+        this.pulseObject('#submit-desc');
+      }
     },
             
 
@@ -222,6 +250,7 @@ Forests.MapsController = Ember.ObjectController.extend({
       }
       },
 
+
     geocode: function() {
       console.log(geocoder);
       geocoder.geocode({
@@ -231,7 +260,7 @@ Forests.MapsController = Ember.ObjectController.extend({
             //do something with the result like flying into it
             var point = results[0].geometry.location;
             var lookat = ge.createLookAt('');
-            lookat.set(point.lat(), point.lng(), 100, ge.ALTITUDE_RELATIVE_TO_GROUND, 0, 0, 4000);
+            lookat.set(point.lat(), point.lng(), 100, ge.ALTITUDE_RELATIVE_TO_GROUND, 0, 0, 10000);
           } else {
             alert("Geocoding error: " + status);
           }
