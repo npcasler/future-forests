@@ -1,0 +1,27 @@
+<scetion class="full-height">
+  <div class="bcg">
+    <div class="fill-lite">
+      <div class="hsContainer">
+        
+          <div class="row chartContent full-height" style="height: 100%;">
+          <div class="btn-group-vertical" style="width: 100%">
+            <div class="col-md-4 chartAlign" style="height:100%; width:25%;">
+             {{#each chart in controller}}
+               {{view Forests.ChartView}}
+             {{/each}}
+            </div>
+            <div class="col-md-4 chartAlign" style="height:100%">
+              <div class="container" style="height: 100%">
+              <img id="pictureContainer" ></img>
+              </div>
+            </div>  
+          <div class="col-md-4 chartAlign">
+            <img id="figureContainer"></img>
+          </div>
+         </div>
+     </div>
+    </div>
+    </div>
+  </div>
+</section>
+

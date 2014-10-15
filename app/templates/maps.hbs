@@ -1,4 +1,4 @@
-<div class="bcg screen full" id="screen-maps" data-video="http://player.vimeo.com/external/97766233.hd.mp4?s=2f0b495f08bcaa3aa3ac996af32cc3f2">
+<div class="bcg  full" id="screen-maps" data-video="http://player.vimeo.com/external/97766233.sd.mp4?s=5df211c4da525ce8da33fddd981d52df">
   <div class="row full-height">
     <div class="col-sm-12 map-overlap">
       <div class="col-md-3 full-height" style="padding-top: 10%;">
@@ -19,16 +19,16 @@
           <div id="rcp-group" class="rcp-toolbar btn-group" style="visibility:hidden; vertical-align:center"> 
           <p id="rcp-desc" style="color:white"><u>Step 2: Choose an Climate Scenario</u></p>
           <div class="row" style="margin-bottom: 5px;">
-          <div class="col-sm-6 btn-control" id="rcp26-label">
-            <label class="rcp-label" for="best-case">
+          <div class="col-sm-6 btn-temp" id="rcp26-label">
               {{view Forests.RadioButton id="best-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp26"}}
+            <label class="rcp-label" for="best-case">
              <div class="best-case-label"></div>
              Best
             </label>
           </div>
-          <div class="col-sm-6 btn-control" id="rcp85-label">
+          <div class="col-sm-6 btn-temp" id="rcp85-label">
+              {{view Forests.RadioButton id="worst-case" class="rcp-radio" selectionBinding="selectedRcp" value="rcp85"}}
             <label  class="rcp-label" for="worst-case">
-              {{view Forests.RadioButton id="worst-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp85"}}
             <div class="worst-case-label"></div>
             Worst
             </label>
@@ -38,20 +38,28 @@
           <br>
           <div id="year-group" class="form-group btn-group" style="visibility:hidden; vertical-align:center">
           <p id="year-desc" style="color:white"><u>Step 3: Pick a year</u></p>
-          <div class="col-sm-6 btn-control" id="current">
-            <div {{action "switchCurrent"}} value="2011"><h3>Now</h3></div>
+          <button class="col-sm-6 btn-control" {{action "switchCurrent"}} value="2011" id="current">
+            <h3>Now</h3>
+          </button>
+          <button class="col-sm-6 btn-control" {{action "switchFuture" }} value="2081" id="future">
+            <h3>2081</h3>
+          </button>
           </div>
-          <div class="col-sm-6 btn-control" id="future">
-            <div {{action "switchFuture"}} value="2081"><h3>2081</h3></div>
-          </div>
+          <div id="slider-group" class="form-group" style="display:none; vertical-align:center">
+          <p id="slider-desc" style="color:white; margin-top: 20px"><u>Step 3: Slide through years</u></p>
+          <h3 id="period" style="color:white"></h3>
+          {{view Forests.SliderView id="time-slider" style="min-height: 20px"}}
           </div>
           <div id="submit-group" class="form-group" style="visibility:hidden;">
-            <div class="col-sm-12">
-              <p id="submit-desc" style="color:white"><u>Step 4: Get the map</u></p>
+            <div class="col-sm-12" style="margin-bottom: 15px">
+              <p id="submit-desc" style="color:white; margin-top: 20px;"><u>Step 4: Get the map</u></p>
 
-              <button type="submit" id="map-submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <span class="spinner"><i class="glyphicon glyphicon-refresh"></i></span><span class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></span></button>
+              <button type="submit" id="map-submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <i class="spinner"><div class="glyphicon glyphicon-refresh"></div></i><span class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></span></button>
             </div>
           </div>
+          <div class="cycle-group" class="form-group" style="display:none">
+          <button id="map-animate" class="btn btn-map" {{action 'toggleCycle' target="view.earthInstance"}}><i id="animate-icon" class="glyphicon glyphicon-play"></i><i id="pause-icon" class="glyphicon glyphicon-stop"i style="display:none"></i></button></div>
+
           <div class="form-group">
             <!--label for="location" class="col-sm-2 control-label" style="color=white;">Location</label-->
             {{input action='geocode' onEvent="enter"  valueBinding="selectedAddress" target='view.earthInstance' style="width:70%;"placeholder="Go to..."}}
@@ -60,7 +68,8 @@
         </div>
       </div>
       <div class="col-md-1" style="padding-top: 200px; color: white;">
-        <p><b>Legend</b></p>
+       
+        <p><u><b>Suitability</b></u></p>
         <div class="row">
          <p>High</p><div class="oval-high"></div>
         </div>
@@ -68,7 +77,27 @@
           <h5>Medium</h5><div class="oval-mid"></div>
         </div>
         <div class="row">
-          <h5>Low</h5><div class="oval-low"></div>
+          <h5>Low</h5><i class="oval-low"></i>
+        </div>
+        <div class="row" style="text-align:center">
+          
+        </div>
+        <div class="form-group" id="slider-control" style="visibility: hidden; margin-top:35px;">
+        <p style="color:white; margin-bottom: -15px; font-weight: bold"><u>SLIDER</u></p>
+        <div class="map-animation" >
+          <!---input type="checkbox" id="buttonThree"  /--->
+          {{view Ember.Checkbox checkedBinding="isSlider" id="buttonThree"}}
+         <br> 
+          <label for="buttonThree"></label>
+        </div>
+        </div>
+        <div class="form-group" id="animate-group" style="visibility:hidden">
+        <p style="color:white; margin-bottom: -15px; font-weight: bold"><u>ANIMATE</u></p>
+        <div class="map-animation">
+          {{view Ember.Checkbox checkedBinding="isAnimated" id="animate-control"}}
+          <br>
+          <label for="animate-control"></label>
+        </div>
         </div>
       </div>
       <div class="col-md-8 full-height pull-right" style="padding-top:120px;">

@@ -13,7 +13,7 @@ Forests.Router.map(function () {
 
   this.resource("headlines", {path: '/headlines/:pageId'});
   
-  
+  this.resource('charts', {path: '/charts'}); 
 
  //   this.resource("headline", { 'path': '/classId' });
   

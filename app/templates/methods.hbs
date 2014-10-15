@@ -1,12 +1,51 @@
-<div class="bcg screen" id="screen-methods" data-video="http://player.vimeo.com/external/97766234.sd.mp4?s=6bca03913cd9ec2ebf0be0682098e1e2">
+
+<section class="full-height">
+  <div class="bcg screen" id="screen-methods" data-video="http://player.vimeo.com/external/97766234.sd.mp4?s=6bca03913cd9ec2ebf0be0682098e1e2">
+    <div class="fill-lite">
+      <div class="hsContainer">
+        <div class="hsContent">
+       
+        <h1 style="font-size: 500%;">Methods</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section class="full-height" id="intro">
+<div class="bcg" id="climate-change">
   <div class="fill-lite">
     <div class="hsContainer">
       <div class="hsContent">
-      <h1>Methods</h1>
-      {{#each method in controller}}
-      {{{method.detail}}}
-      {{/each}}
-    </div>
+        <p>Climatic suitability was modeled using 1) occurrence data, 2) digital maps of climate, and 3) a statistical model to associate these two types of information.</p>
+        <p>Occurence data are records of a species occurring at a particular location, i.e., the latitude and longitude where the species was found. We used occurrence data from the Botanical Information and Ecology Network(<a href="http://bien.nceas,ucsb.edu/bien">BIEN</a>). Much of the data in BIEN are derived from natural history collections (herbarium specimens), but they also include the locations of U.S. Forests Service forest inventory plots(<a href="http://www.fia.fs.fed.us">Forest Inventory and Analysis, FIA</a>), and other published sources of data (see <a href="http://bien.nceas.ucsb.edu/bien">BIEN</a>). The number of occurrences used per species ranged from 1,324(<i>Juniperus scopulorum</i>) to 14,626(<i>Pseudotsuga menziesii</i>) among our nine focal species. These sample size reflect the number of data points after eliminating duplicate points falling within the same 1kmx1km grid cell.</p>
+        <p>Two types of digital maps of climate were used - current climate and future climate. Current climate data were used to construct a model of a species' climatic niche and predict its current geographic distribution; future climate data were used to predict the species' geographic distribution under future climates resulting from alternative greenhouse gas emission scenarios - <em>Representative Concentration Pathways</em>(RCP's). We projected future distributions under two such scenarios, RCP 2.6 and 8.5.</p>
+        
+      </div>
     </div>
   </div>
 </div>
+</section>
+<section class="full-height" id="method-detail">
+<div class="bcg">
+  <div class="fill-lite">
+    <div class="hsContainer">
+      <div class="hsContent">
+        <p>For both current and future climate data, we used digital maps from the most recent(fifth) assessment report from the Intergovernmental Panel on Climate Change(IPPC AR5), statistically-downscaled and bias-corrected by the U.S. National Aeronautics and Space Administration (<a href="https://portal.nccs.nasa.gov/portal_home/published/NEX.html">NASA</a>) to a resolution of 30 arc-seconds(~1km<super>2</super>
+        ). For all years (1950-2095), we first averaged across a single replicate from each of four <em>General Circulation Models</em>(<em>GCM</em>)  to obtain monthly precipitation, maximum temperature and minimum temperature data. The four GCMs were CSIRO-Mk3.6.0, HADGEM2-ES, MIROC5, and MPI-ESM-LR; this selection of GCMs was informed by a recent comparison
+        <super>1</super> 
+        of the performance 17 GCMs at matching historical patterns of the North American climate(e.g., cool season Western Atlantic cyclones, the North American monsoon, the U.S. Great Plains low-level jet, and Arctic sea ice). These data represent model simulations that are  hindcasts for the period 1950-2006, and forecasts for the period 2006-2095.</p>
+        <p>We used these GCM-averaged temperature and precipitation data to calculate 19 bioclimatic variables(described <a href="http://www.worldclim.org/bioclim">here</a>) for the period 1960-2095. These bioclimatic variables capture aspects of climate expected to be important for the survival, growth, and reproduction of many organisms - mean annual temperature, mean annual precipitation, precipitation in the hottest three months of the year, mean temperature in the coldest three months of the year, etc.</p>
+        <p>We then calculated "current climatic normals" by averaging each of the 19 bioclimatic variables across the years 1950-2000. Future climate normals were calculated by averaging across 30-year windows centered on each of the decades from 2020 to 2080 (2006-2035, 2016-2045, 2026-2055, 2036-2065, 2046-2075, 2056-2085, 2066-2095).</p>
+        <p>Statistical modeling of climatic niches and geographical distributions was conducted using the freely-available algorithm <a href="http://www.cs.princeton.edu/~schapire/maxent/">Maxent<super>2</super></a>. Maxent employs a maximum entropy method to model a species' climatic niche; it has performed well in comparisons among competing methods<super>3</super>
+          . Maxent compares the climate where the species is known to occur against a sample of the "background"-here, all of the contiguous western United States within the Northern Latitudes 24.06&#176; and 49.94&#176; and the Western Longitudes -125.02&#175; and -97.18&#176;. Model parameters that best distinguish the climate where the species is known to occur from the background climate constitute the "climatic niche model". We used all 19 bioclim variables as predictors in Maxent, with the default settings for features and regularization. The model output (Maxent "raw" probabilities) is a prediction of the relative suitability of each grid cell in the landscape - relatively better vs. worse for a given species, in terms of climatic conditions. That is, Maxent predicts the relative occurence rate of a species
+          <super>4</super>. This model of the climatic niche was then used to project (forecast) the species' distribution into the future, using the future climate normals described above.</p>
+        <p>We converted predicted current and future relative occurrence rates to an absolute scale by calibrating them against expert maps of each species' distributions
+          <super>5</super>
+          . We did this in two ways. First, for each species, we divided the Maxent raw output scale into four categories that captured cumulatively 5%, 36.7%, 68.3%, and 100% of the cells where the species is present, according to the expert range map. This generated a map with four categories, which can be thought of as "not present" vs. low, medium, and high probability of presence. These are maps shown in the google-earth interface. A second-set of maps were produced that dichotomized the Maxent raw output scale into "not present" vs. "present", using the critierion of the lowest overall error rate(including both false positives and false negatives), compared to the expert range maps. These maps were the basis for our analyses of change in area that is "climatically-suitable" per species, per rcp, per forest type, and per habitat type. "Hurricane tracks" were calculated from the centroid of the prediced species range through time.</p>
+        <p>Abies amabilis (1),Abies concolor (2),Abies grandis (3),Abies lasiocarpa (4),Abies magnifica (5),Abies procera (6),Acacia constricta (7),Acacia greggii (8),Acer glabrum (9),Acer grandidentatum (10),Acer macrophyllum (11),Acer negundo (12),Aesculus californica (13),Alnus rhombifolia (14),Alnus rubra (15),Arbutus arizonica (16),Arctostaphylos pringlei (17),Arctostaphylos pungens (18),Artemisia filifolia (19),Artemisia tridentata (20),Betula papyrifera (21),Calocedrus decurrens (22),Carnegiea gigantea (23),Cercis occidentalis (24),Cercocarpus ledifolius (25),Chamaecyparis lawsoniana (26),Cornus nuttallii (27),Cupressus arizonica (28),Fraxinus gooddingii (29),Fraxinus latifolia (30),Fraxinus velutina (31),Heteromeles arbutifolia (32),Juniperus coahuilensis (33),Juniperus deppeana (34),Juniperus monosperma (35),Juniperus occidentalis (36),Juniperus osteosperma (37),Juniperus scopulorum (38),Larix lyallii (39),Larix occidentalis (40),Larrea tridentata (41),Lithocarpus densiflorus (42),Olneya tesota (43),Parkinsonia aculeata (44),Parkinsonia florida (45),Parkinsonia microphylla (46),Picea breweriana (47),Picea engelmannii (48),Picea pungens (49),Picea sitchensis (50),Pinus albicaulis (51),Pinus aristata (52),Pinus arizonica (53),Pinus attenuata (54),Pinus cembroides (55),Pinus contorta (56),Pinus coulteri (57),Pinus edulis (58),Pinus flexilis (59),Pinus jeffreyi (60),Pinus lambertiana (61),Pinus leiophylla (62),Pinus longaeva (63),Pinus monophylla (64),Pinus monticola (65),Pinus ponderosa (66),Pinus strobiformis (67),Populus deltoides (68),Populus tremuloides (69),Prosopis velutina (70),Pseudotsuga menziesii (71),Quercus agrifolia (72),Quercus arizonica (73),Quercus chrysolepis (74),Quercus douglasii (75),Quercus emoryi (76),Quercus gambelii (77),Quercus garryana (78),Quercus grisea (79),Quercus hypoleucoides (80),Quercus kelloggii (81),Quercus lobata (82),Quercus oblongifolia (83),Quercus palmeri (84),Quercus rugosa (85),Quercus wislizeni (86),Robinia neomexicana (87),Sequoia sempervirens (88),Sequoiadendron giganteum (89),Stenocereus thurberi (90),Taxus brevifolia (91),Thuja plicata (92),Tsuga heterophylla (93),Tsuga mertensiana (94),Umbellularia californica (95)</p>
+        </div>
+      </div>
+    </div>
+</div>
+</section>

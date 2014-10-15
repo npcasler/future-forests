@@ -455,5 +455,15 @@ Forests.Plant.FIXTURES =
     id:90,
     name:"Laurel, California Bay",
     sci_name:"Umbellularia_californica"
+  },
+  {
+    id:91,
+    name: "Fir, Douglas",
+    sci_name: "Pseudotsuga_menziesii"
+  },
+  {
+    id:92,
+    name: "Aspen, Quaking",
+    sci_name: "Populus_tremuloides"
   }
 ];

@@ -1,6 +1,6 @@
 Forests.RadioButton = Ember.View.extend({
   tagName: "input",
-  className: "radio-forest",
+  className: "btn-control",
   type: "radio",
   attributeBindings: ["name", "type", "value", "checked:checked:" ],
   click: function() {

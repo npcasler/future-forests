@@ -33,9 +33,17 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
   toggleDetail: function(detail) {
     console.log("openDetail called.");
     console.log(detail);
+    
     var detailId = '#'+detail;
+    var headline = detailId.substring(0, detailId.length - 7);
+    console.log(headline);
     console.log($(detailId).css('max-height'));
-    $(detailId).css("max-height", $(detailId).css("max-height") === '0px' ? '1200px' : '0');
+    $(detailId).css("max-height", $(detailId).css("max-height") === '0px' ? '3600px' : '0');
+    if ($(detailId).css('max-height') === '0px') {
+      $('body').scrollTo($(detailId).offset().top - 125, {duration: 'slow', offsetTop: '200',  easing: 'swing'});
+    } else {
+      $('body').scrollTo($(headline), {duration: 'slow', easing: 'swing'});
+    }
 
   },
   
