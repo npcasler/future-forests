@@ -196,7 +196,8 @@ label {
 }
 
 .btn-text {
-  font-family: 'LibreBaskerville', serif;
+//  font-family: 'LibreBaskerville', serif;
+  font-family: 'Oswald', 'sans';
   padding: 20px;
   
   background: rgba(0,0,0,0.4);
@@ -1085,7 +1086,7 @@ div.worst-case-label {
 }
 
 div.figure {
-  width: 500px;
+  width: 28vw;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1220,19 +1221,19 @@ div.butte-85 {
 }
 
 div.subalpine26 {
-  width: 700px;
+  width: 40vw;
   content: url(../images/subalpine26.jpg);
 }
 div.subalpine85 {
-  width: 700px;
+  width: 40vw;
   content: url(../images/subalpine85.jpg);
 }
 div.arid26 {
- width:700px;
+ width: 40vw;
   content: url(../images/arid26.jpg);
 }
 div.arid85 {
-  width: 700px;
+  width: 40vw;
   content: url(../images/arid85.jpg);
 }
 div.habitat {
@@ -1633,4 +1634,59 @@ div.uagist {
           transition: 1s ease-out;
      }
 
+.green-arrow {
+  height: inherit;
+  margin: 0px;
+  padding: 20px 50px 20px 0px;
+  background: url(../images/green-arrow.svg) no-repeat;
+}
 
+ul.nav li.ember-view {
+//  border: 1px solid #118c4e;
+//  border-radius: 50%;
+  text-align: center;
+  vertical-align: center;
+  background: url(../images/nav_bg.svg) no-repeat center;
+  background-size: 80% 80%;
+}
+
+.leftAlign {
+  text-align: left;
+}
+
+.textMed {
+  font-size: 1.5em;
+}
+
+.bottom-nav {
+  display: table;
+  margin: 5% auto;
+}
+
+.bottom-nav > div {
+  text-align: center;
+  font-size: 2vw;
+  display: inline-table;
+  padding-left: 1em;
+  padding-right: 1em;
+  vertical-align: top;
+}
+
+.bottom-nav a:hover {
+  color: #b81414;
+  text-decoration: none;
+}
+
+.circle-nav {
+  border-radius: 50%;
+  background: #c8dac8;
+}
+
+.greenArrow-bottom {
+  background: url(../images/green-arrow.svg) no-repeat;
+  background-size: 3em 3em;
+  width: 3.5em;
+  padding: 0 5em 5em 5em;
+  margin-left: 1.75em;
+  margin-right: 1.75em;
+}
