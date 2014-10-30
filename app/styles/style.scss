@@ -1221,25 +1221,30 @@ div.butte-85 {
 }
 
 div.subalpine26 {
-  width: 40vw;
+  width: 30vw;
   content: url(../images/subalpine26.jpg);
 }
 div.subalpine85 {
-  width: 40vw;
+  width: 30vw;
   content: url(../images/subalpine85.jpg);
 }
 div.arid26 {
- width: 40vw;
+ width: 30vw;
   content: url(../images/arid26.jpg);
 }
 div.arid85 {
-  width: 40vw;
+  width: 30vw;
   content: url(../images/arid85.jpg);
 }
 div.habitat {
-  
+  width: 50vw; 
   content: url(../images/Habitat.jpg);
 }
+div.habitat-legend {
+  width: 15vw;
+  content: url(../images/habitat-legend.jpg);
+}
+
 div.lemmon-current {
   height: auto;
   width: auto;
@@ -1653,9 +1658,22 @@ ul.nav li.ember-view {
 .leftAlign {
   text-align: left;
 }
+.centerAlign {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-.textMed {
+.textSm {
+  font-size: 1.2em;
+}
+
+.textMd {
   font-size: 1.5em;
+}
+
+.textLg {
+  font-size: 2.5em;
 }
 
 .bottom-nav {
