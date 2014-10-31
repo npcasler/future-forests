@@ -1147,56 +1147,56 @@ div.atmo-rcp85 {
   content: url(../images/atmo-rcp85.jpg) no-repeat 0 0;
 }
 div.abies_range {
-  width: 500px;
+  width: 25vw;
   margin-left:auto;
   margin-right:auto;
   content: url(../images/Abies_lasiocarpa.jpg);
 }
 div.eng-range {
-  width: 500px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
   content: url(../images/Picea_engelmannii.jpg);
 }
 div.cont-range {
-  width: 500px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
   content: url(../images/Pinus_contorta.jpg);
 }
 div.glab-range {
-  width: 500px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
   content: url(../images/Acer_glabrum.jpg);
 }
 div.ponderosa-range {
-  width: 500px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
   content: url(../images/Pinus_ponderosa.jpg);
 }
 div.jeffrey-range {
-  width: 500px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
   content: url(../images/Pinus_jeffreyi.jpg);
 }
 div.pinyon-range {
-  width: 500px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
   content: url(../images/Pinus_edulis.jpg);
 }
 div.menziesii-range {
-  width: 500px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
   content: url(../images/Pseudotsuga_menziesii.jpg);
 }
 div.hetero-range {
   
-  width: 500px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
   content: url(../images/Tsuga_heterophylla.jpg);
@@ -1221,20 +1221,24 @@ div.butte-85 {
 }
 
 div.subalpine26 {
-  width: 30vw;
+  width: 23vw;
   content: url(../images/subalpine26.jpg);
+  float: left;
 }
 div.subalpine85 {
-  width: 30vw;
+  width: 23vw;
   content: url(../images/subalpine85.jpg);
+  float: right;
 }
 div.arid26 {
- width: 30vw;
+ width: 21vw;
   content: url(../images/arid26.jpg);
+  float: left;
 }
 div.arid85 {
-  width: 30vw;
+  width: 21vw;
   content: url(../images/arid85.jpg);
+  float: right;
 }
 div.habitat {
   width: 50vw; 
@@ -1261,24 +1265,24 @@ div.lemmon-85 {
   content: url(../images/lemmon-85.jpg);
 }
 div.greggii-range {
-  width: 500px;
+  width: 25vw;
   
   height: auto;
   content: url(../images/Acacia_greggii.jpg);
 }
 div.tesota-range { 
-  width: 500px;
+  width: 25vw;
   height: auto;
   content: url(../images/Olneya_tesota.jpg);
 }
 div.gambelii-range {
-  width: 500px;
+  width: 25vw;
   height: auto; 
   content: url(../images/Quercus_gambelii.jpg);
 }
 div.osteo-range {
   
-  width:500px;
+  width: 25vw;
   height: auto;
   content: url(../images/Juniperus_osteosperma.jpg);
 }
@@ -1655,6 +1659,13 @@ ul.nav li.ember-view {
   background-size: 80% 80%;
 }
 
+hr {
+  margin: 25px 0;
+  height: 1px;
+  background: #a8a8a8;
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #a8a8a8));
+}
+
 .leftAlign {
   text-align: left;
 }
@@ -1663,7 +1674,11 @@ ul.nav li.ember-view {
   margin-left: auto;
   margin-right: auto;
 }
-
+div.center {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .textSm {
   font-size: 1.2em;
 }
@@ -1697,7 +1712,13 @@ ul.nav li.ember-view {
 
 .circle-nav {
   border-radius: 50%;
+  background: #c8dac8; 
+}
+
+.circle-nav-active {
+  border-radius: 50%;
   background: #c8dac8;
+  border: red 1px solid;
 }
 
 .greenArrow-bottom {
