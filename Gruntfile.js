@@ -18,6 +18,7 @@ module.exports = function (grunt) {
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
+    //grunt.loadNpmTasks('grunt-favicons');
     // configurable paths
     var yeomanConfig = {
         app: 'app',
@@ -26,6 +27,17 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
+        favicons: {
+          options: {
+            html: '<%= yeoman.dist %>/index.html',
+            HTMLPrefix: "images/"
+            //Task specific  options go here
+          },
+          icons: {
+            src: '<%= yeoman.app %>/favicon.png',
+            dest: '<%= yeoman.dist %>/images'
+          }
+        },
         watch: {
             emberTemplates: {
                 files: '<%= yeoman.app %>/templates/**/*.hbs',
@@ -244,33 +256,17 @@ module.exports = function (grunt) {
           app: {
             options: {
               variables: {
-                ember: 'bower_components/ember/ember.js',
-                ember_data: 'bower_components/ember-data/ember-data.js',
+                ember: 'bower_components/ember/ember.prod.js',
+                ember_data: 'bower_components/ember-data/ember-data.prod.js',
                 google_api: 'http://www.google.com/jsapi',
-		apple_icon57: 'rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png"',
-		apple_icon114: 'rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png"',
-		apple_icon72: 'rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png"',
-		apple_icon144: 'rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png"',
-		apple_icon60: 'rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png"',
-		apple_icon120: 'rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png"',
-		apple_icon76: 'rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png"',
-		apple_icon152: 'rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png"',
-		apple_icon180: 'rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png"',
-		favicon192: 'rel="icon" type="image/png" href="favicon-192x192.png" sizes="192x192"',
-		favicon160: 'rel="icon" type="image/png" href="favicon-160x160.png" sizes="160x160"',
-		favicon96: 'rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96"',
-		favicon16: 'rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"',
-		favicon32: 'rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"',
-		TileColor: 'name="msapplication-TileColor" content="#00a300"',
-		TileImage: 'name="msapplication-TileImage" content="mstile-144x144.png"',
-		jsapi: 'src="https://www.google.com/jsapi"',
-		font_OS: 'href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"',
-		font_LBO: 'href="http://fonts.googleapis.com/css?family=Libre+Baskerville|Oswald" rel="stylesheet" type="text/css"',
-		EarthStarup: 'src="scripts/GoogleEarthStartup.js"',
-		select2_bootstrap: 'rel="stylesheet" href="bower_components/select2/select2-bootstrap.css" type="text/css"',
-		video_js: 'rel="stylesheet" href="bower_components/video.js/dist/video-js/video.js" type="text/css"',
-		jquery_ui_theme_css: 'rel="stylesheet" href="styles/jquery-ui.theme.css"',
-		style_css: 'rel="stylesheet" href="styles/style.css"'
+		jsapi: 'https://www.google.com/jsapi',
+		font_OS: 'http://fonts.googleapis.com/css?family=Open+Sans',
+		font_LBO: 'http://fonts.googleapis.com/css?family=Libre+Baskerville|Oswald',
+		EarthStartup: 'scripts/GoogleEarthStartup.js',
+		select2_bootstrap: 'bower_components/select2/select2-bootstrap.css',
+		video_js: 'bower_components/video.js/dist/video-js/video.js',
+		jquery_ui_theme_css: 'styles/jquery-ui.theme.css',
+		style_css: 'styles/style.css'
               }
             },
             files: [
@@ -283,30 +279,14 @@ module.exports = function (grunt) {
                 ember: 'bower_components/ember/ember.prod.js',
                 ember_data: 'bower_components/ember-data/ember-data.prod.js',
                 google_api: 'http://www.google.com/jsapi',
-		apple_icon57: 'rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png"',
-		apple_icon114: 'rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png"',
-		apple_icon72: 'rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png"',
-		apple_icon144: 'rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png"',
-		apple_icon60: 'rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png"',
-		apple_icon120: 'rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png"',
-		apple_icon76: 'rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png"',
-		apple_icon152: 'rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png"',
-		apple_icon180: 'rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png"',
-		favicon192: 'rel="icon" type="image/png" href="favicon-192x192.png" sizes="192x192"',
-		favicon160: 'rel="icon" type="image/png" href="favicon-160x160.png" sizes="160x160"',
-		favicon96: 'rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96"',
-		favicon16: 'rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"',
-		favicon32: 'rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"',
-		TileColor: 'name="msapplication-TileColor" content="#00a300"',
-		TileImage: 'name="msapplication-TileImage" content="mstile-144x144.png"',
-		jsapi: 'src="https://www.google.com/jsapi"',
-		font_OS: 'href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"',
-		font_LBO: 'href="http://fonts.googleapis.com/css?family=Libre+Baskerville|Oswald" rel="stylesheet" type="text/css"',
-		EarthStarup: 'src="scripts/GoogleEarthStartup.js"',
-		select2_bootstrap: 'rel="stylesheet" href="bower_components/select2/select2-bootstrap.css" type="text/css"',
-		video_js: 'rel="stylesheet" href="bower_components/video.js/dist/video-js/video.js" type="text/css"',
-		jquery_ui_theme_css: 'rel="stylesheet" href="styles/jquery-ui.theme.css"',
-		style_css: 'rel="stylesheet" href="styles/style.css"'
+		jsapi: 'https://www.google.com/jsapi',
+		font_OS: 'http://fonts.googleapis.com/css?family=Open+Sans',
+		font_LBO: 'http://fonts.googleapis.com/css?family=Libre+Baskerville|Oswald',
+		EarthStartup: 'scripts/GoogleEarthStartup.js',
+		select2_bootstrap: 'bower_components/select2/select2-bootstrap.css',
+		video_js: 'bower_components/video.js/dist/video-js/video.js',
+		jquery_ui_theme_css: 'styles/jquery-ui.theme.css',
+		style_css: 'styles/style.css'
               }
             },
             files: [
@@ -433,6 +413,7 @@ module.exports = function (grunt) {
         'uglify',
         'copy',
         'rev',
+        'favicons',
         'usemin'
     ]);
 
