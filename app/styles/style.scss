@@ -1136,6 +1136,9 @@ div.forest-vulnerable {
 /* Figures for the science summary page*/
 div.forest-cover {
   content: url(../images/combinedForestOnly.jpg) no-repeat 0 0;
+  width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 div.atmo-current {
   content: url(../images/atmo-current.jpg) no-repeat 0 0;
@@ -1221,22 +1224,22 @@ div.butte-85 {
 }
 
 div.subalpine26 {
-  width: 23vw;
+  width: 28vw;
   content: url(../images/subalpine26.jpg);
   float: left;
 }
 div.subalpine85 {
-  width: 23vw;
+  width: 28vw;
   content: url(../images/subalpine85.jpg);
   float: right;
 }
 div.arid26 {
- width: 21vw;
+ width: 28vw;
   content: url(../images/arid26.jpg);
   float: left;
 }
 div.arid85 {
-  width: 21vw;
+  width: 28vw;
   content: url(../images/arid85.jpg);
   float: right;
 }
@@ -1247,6 +1250,8 @@ div.habitat {
 div.habitat-legend {
   width: 15vw;
   content: url(../images/habitat-legend.jpg);
+  margin-left: 50%;
+  margin-right: auto;
 }
 
 div.lemmon-current {
@@ -1266,9 +1271,22 @@ div.lemmon-85 {
 }
 div.greggii-range {
   width: 25vw;
-  
   height: auto;
   content: url(../images/Acacia_greggii.jpg);
+}
+div.region {
+  width: 45vw;
+  height: auto;
+  content: url(../images/Region.jpg);
+  margin-left: auto;
+  margin-right: auto;
+}
+div.region-legend {
+  width: 15vw;
+  height: auto;
+  content: url(../images/Region-legend.jpg);
+  margin-left: 50%;
+  margin-right: auto;
 }
 div.tesota-range { 
   width: 25vw;
@@ -1693,7 +1711,10 @@ div.center {
 
 .bottom-nav {
   display: table;
-  margin: 5% auto;
+  margin-top: 2.5%;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bottom-nav > div {
@@ -1728,4 +1749,8 @@ div.center {
   padding: 0 5em 5em 5em;
   margin-left: 1.75em;
   margin-right: 1.75em;
+}
+
+.btn-group-vertical div div  > img {
+  width: 25vw;
 }
