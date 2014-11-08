@@ -1,4 +1,5 @@
 Forests.HeadlinesController = Ember.ArrayController.extend({
+  needs: 'charts',
   sortProperties: ['orderId'],
   sortAscending: true, //false = descending
 
@@ -38,7 +39,7 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
     var headline = detailId.substring(0, detailId.length - 7);
     console.log(headline);
     console.log($(detailId).css('max-height'));
-    $(detailId).css("max-height", $(detailId).css("max-height") === '0px' ? '3600px' : '0');
+    $(detailId).css("max-height", $(detailId).css("max-height") === '0px' ? '3600px' : '0px');
     if ($(detailId).css('max-height') === '0px') {
       $('body').scrollTo($(detailId).offset().top - 125, {duration: 'slow', offsetTop: '200',  easing: 'swing'});
     } else {
@@ -47,5 +48,7 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
 
   },
   
+
+
   }
 });

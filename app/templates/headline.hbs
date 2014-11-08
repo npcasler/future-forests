@@ -4,12 +4,16 @@
     <div class="hsContainer">
       <div class="hsContent">
         <h1>{{headline.title}}</h1>
+        {{#if headline.detail}}
         <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Learn More  <i class="glyphicon glyphicon-chevron-down"></i></button>
+        {{else}}
+        {{/if}}
       </div>
     </div>
   </div>
 </div>
 </section>
+
 <div class="detail" {{bind-attr id="headline.detailId"}}>
   <div class="hsContainer">
     <div class="hsContent" style="color:black;">
@@ -20,7 +24,12 @@
     </div>
     
   </div>
+  {{#if headline.chart}}
+    {{render "charts"}} 
+  {{else}}
+  {{/if}}
   {{{headline.detail}}}
+  
    <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Close <i class="glyphicon glyphicon-chevron-up"></i></button>
     </div>
   </div>
