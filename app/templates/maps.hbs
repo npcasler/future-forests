@@ -1,9 +1,10 @@
 <div class="bcg  full" id="screen-maps" data-video="http://player.vimeo.com/external/97766233.sd.mp4?s=5df211c4da525ce8da33fddd981d52df">
-  <div class="row full-height">
+  <div class="row"><!-- full height -->
     <div class="col-sm-12 map-overlap">
       <div class="col-md-3 full-height" style="padding-top: 10%;">
         <div class="form-horizontal span8" style="width=100%;">
-          <p id="plant-desc" style="color:white"><u>Step 1: Choose a Species</u></p>
+          <p id="plant-desc" class="map-step" >Step 1: Choose a Species</p>
+	  <p><hr class="maps-hr"></p>
           <div class="form-group">
             <div class="controls">
              {{view Ember.Select
@@ -13,12 +14,12 @@
                 optionLabelPath="content.name"
                 valueBinding="selectedPlant"
                
-                prompt="Select a Species"}}
+                prompt="Select a Species..."}}
             </div>
           </div>
-          <div id="rcp-group" class="rcp-toolbar btn-group" style="visibility:hidden; vertical-align:center"> 
-          <p id="rcp-desc" style="color:white"><u>Step 2: Choose an Climate Scenario</u></p>
-          <div class="row" style="margin-bottom: 5px;">
+          <div id="rcp-group" class="rcp-toolbar btn-group" style="visibility:hidden; vertical-align:center;width:100%;"> 
+          <p id="rcp-desc" class="map-step">Step 2: Choose a <br>Climate Scenario<hr class="maps-hr"></p>
+          <div class="btn-row" style="margin-bottom: 5px;">
           <div class="col-sm-6 btn-temp" id="rcp26-label">
               {{view Forests.RadioButton id="best-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp26"}}
             <label class="rcp-label" for="best-case">
@@ -37,7 +38,7 @@
           </div>
           <br>
           <div id="year-group" class="form-group btn-group" style="visibility:hidden; vertical-align:center">
-          <p id="year-desc" style="color:white"><u>Step 3: Pick a year</u></p>
+          <p id="year-desc" class="map-step" style="padding-top: 15%;">Step 3: Pick a year<hr class="maps-hr"></p>
           <button class="col-sm-6 btn-control" {{action "switchCurrent"}} value="2011" id="current">
             <h3>Now</h3>
           </button>
@@ -46,13 +47,13 @@
           </button>
           </div>
           <div id="slider-group" class="form-group" style="display:none; vertical-align:center">
-          <p id="slider-desc" style="color:white; margin-top: 20px"><u>Step 3: Slide through years</u></p>
+          <p id="slider-desc" style="color:white; margin-top: 20px">Step 3: Slide through years</p>
           <h3 id="period" style="color:white"></h3>
           {{view Forests.SliderView id="time-slider" style="min-height: 20px"}}
           </div>
           <div id="submit-group" class="form-group" style="visibility:hidden;">
             <div class="col-sm-12" style="margin-bottom: 15px">
-              <p id="submit-desc" style="color:white; margin-top: 20px;"><u>Step 4: Get the map</u></p>
+              <p id="submit-desc" style="color:white; margin-top: 20px;">Step 4: Get the map</p>
 
               <button type="submit" id="map-submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <i class="spinner"><div class="glyphicon glyphicon-refresh"></div></i><span class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></span></button>
             </div>
@@ -62,28 +63,28 @@
 
           <div class="form-group">
             <!--label for="location" class="col-sm-2 control-label" style="color=white;">Location</label-->
-            {{input action='geocode' onEvent="enter"  valueBinding="selectedAddress" target='view.earthInstance' style="width:70%;"placeholder="Go to..."}}
+            {{input action='geocode' onEvent="enter"  valueBinding="selectedAddress" target='view.earthInstance' style="width:100%;"placeholder=" Search by location"}}
             <button class="btn-control" {{action 'geocode' target='view.earthInstance'}}><i class="glyphicon glyphicon-arrow-right"></i></button>
           </div>
         </div>
       </div>
-      <div class="col-md-1" style="padding-top: 200px; color: white;">
+      <div class="col-md-1 map-legend">
        
-        <p><u><b>Suitability</b></u></p>
+        <p><b>Suitability</b></p>
         <div class="row">
-         <p>High</p><div class="oval-high"></div>
+         <p class="map-legend2">High</p><div class="oval-high"></div>
         </div>
         <div class="row">
-          <h5>Medium</h5><div class="oval-mid"></div>
+          <p class="map-legend2">Medium</p><div class="oval-mid"></div>
         </div>
         <div class="row">
-          <h5>Low</h5><i class="oval-low"></i>
+          <p class="map-legend2">Low</p><i class="oval-low"></i>
         </div>
         <div class="row" style="text-align:center">
           
         </div>
         <div class="form-group" id="slider-control" style="visibility: hidden; margin-top:35px;">
-        <p style="color:white; margin-bottom: -15px; font-weight: bold"><u>SLIDER</u></p>
+        <p style="color:white; margin-bottom: -15px; font-weight: bold">Animate</p>
         <div class="map-animation" >
           <!---input type="checkbox" id="buttonThree"  /--->
           {{view Ember.Checkbox checkedBinding="isSlider" id="buttonThree"}}
@@ -92,7 +93,7 @@
         </div>
         </div>
         <div class="form-group" id="animate-group" style="visibility:hidden">
-        <p style="color:white; margin-bottom: -15px; font-weight: bold"><u>ANIMATE</u></p>
+        <p style="color:white; margin-bottom: -15px; font-weight: bold">Play/Pause</p>
         <div class="map-animation">
           {{view Ember.Checkbox checkedBinding="isAnimated" id="animate-control"}}
           <br>

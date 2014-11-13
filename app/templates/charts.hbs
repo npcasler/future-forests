@@ -1,25 +1,30 @@
-<scetion class="full-height">
+<section class="full-height">
   <div class="bcg">
     <div class="fill-lite" style="background: none">
       <div class="hsContainer"> 
-        <div id="chartNames" class="row chartContent full-height center chartDetail" style="height: 100%;">
+        <div {{bind-attr id="headline.chartName"}} class="row chartContent full-height center chartDetail" style="height: 100%;">
           <div class="row">
             <div class="col-md-12 chartAlign" style="height:100%; width:100%;">
-              {{#each chart in controller}}
+            {{#if headline.loss}}
+              {{#each chart in lossCharts}}
                 {{view "chart"}}
               {{/each}}
+            {{else}}
+              {{#each chart in gainCharts}}
+                {{view "chart"}}
+              {{/each}}
+            {{/if}}
             </div>
           </div>
-          <div id="chartContainer" class="row">
+          <div {{bind-attr id="headline.chartContainer"}} class="row">
              <div class="col-md-6 chartAlign" >
-                 <img id="pictureContainer"class="img-chart" ></img>
+                 <img {{bind-attr id="headline.pictureContainer"}}class="img-chart" ></img>
              </div>
              <div class="col-md-6">
-                 <img id="figureContainer" class="img-fig"></img>
+                 <img {{bind-attr id="headline.figureContainer"}} class="img-fig"></img>
              </div>
              <div class="row col-md-12">
                  <button class="btn-chart" {{action "toggleChart"}}>Close figures/charts<i class="glyphicon glyphicon-chevron-up"></i></button>
-                 <hr>
              </div>
           </div>
         </div>

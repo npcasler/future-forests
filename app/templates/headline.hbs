@@ -24,12 +24,16 @@
     </div>
     
   </div>
+  {{{headline.detail}}}
   {{#if headline.chart}}
+   <!-- <hr> --> 
+    <div class="row textMd">
+       Click on a tree species below
+    </div>
     {{render "charts"}} 
   {{else}}
   {{/if}}
-  {{{headline.detail}}}
-  
+    
    <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Close <i class="glyphicon glyphicon-chevron-up"></i></button>
     </div>
   </div>

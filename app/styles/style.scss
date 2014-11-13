@@ -5,7 +5,7 @@ $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 
 
 @font-face {
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Oswald', sans-serif;
 }
 
 
@@ -20,7 +20,7 @@ html, body body > .ember-view, #main{
 }
 
 body {
-  font-family: 'Libre-Baskerville', serif;  
+  font-family: 'Oswald', sans-serif !important;  
 }
 
 @media (max-width: 1000px) {
@@ -1019,15 +1019,15 @@ input[type=checkbox] {
 .ember-select {
   background: rgba(0,0,0, 0.3);
   color: white;
-  width: 300px;
+  width: 90%;
   padding: 5px;
   font-size: 1em;
   line-height: 1;
   border: 0;
   border-radius: 0;
   height: 34px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
+/*  -moz-appearance: none;
+  -webkit-appearance: none;*/
 }
 
 .ember-select option {
@@ -1053,6 +1053,7 @@ input[type=checkbox] {
   width: 70%;
   -moz-appearance: none;
   -webkit-appearance: none;
+  height: 40px;
 }
 
 .ember-text-field:focus {
@@ -1061,7 +1062,7 @@ input[type=checkbox] {
   outline: 0;
   -moz-box-shadow: none;
   box-shadow: none;
-  font-weight: 900;
+  font-weight: 800;
   -webkit-transform: scale(1.1);
   border: 2px dashed white; 
 }
@@ -1153,56 +1154,56 @@ div.abies_range {
   width: 25vw;
   margin-left:auto;
   margin-right:auto;
-  content: url(../images/Abies_lasiocarpa.jpg);
+  content: url(../images/chart_abies_lasiocarpa.jpg);
 }
 div.eng-range {
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/Picea_engelmannii.jpg);
+  content: url(../images/chart_picea_engelmannii.jpg);
 }
 div.cont-range {
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/Pinus_contorta.jpg);
+  content: url(../images/chart_pinus_contorta.jpg);
 }
 div.glab-range {
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/Acer_glabrum.jpg);
+  content: url(../images/chart_acer_glabrum.jpg);
 }
 div.ponderosa-range {
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/Pinus_ponderosa.jpg);
+  content: url(../images/chart_pinus_ponderosa.jpg);
 }
 div.jeffrey-range {
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/Pinus_jeffreyi.jpg);
+  content: url(../images/chart_pinus_jeffreyi.jpg);
 }
 div.pinyon-range {
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/Pinus_edulis.jpg);
+  content: url(../images/chart_pinus_edulis.jpg);
 }
 div.menziesii-range {
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/Pseudotsuga_menziesii.jpg);
+  content: url(../images/chart_pseudotsuga_menziesii.jpg);
 }
 div.hetero-range {
   
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/Tsuga_heterophylla.jpg);
+  content: url(../images/chart_tsuga_heterophylla.jpg);
 }
 div.aspen-current {
   content: url(../images/aspen-current.jpg);
@@ -1228,6 +1229,14 @@ div.subalpine26 {
   content: url(../images/subalpine26.jpg);
   float: left;
 }
+
+div.subalpine-legend {
+  width: 15vw;
+  content: url(../images/subalpine_legend.jpg);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 div.subalpine85 {
   width: 28vw;
   content: url(../images/subalpine85.jpg);
@@ -1242,6 +1251,18 @@ div.arid85 {
   width: 28vw;
   content: url(../images/arid85.jpg);
   float: right;
+}
+div.arid26-legend {
+  width: 15vw;
+  content: url(../images/arid26_legend.jpg);
+  margin-left: auto;
+  margin-right: auto;
+}
+div.arid85-legend {
+  width: 15vw;
+  content: url(../images/arid85_legend.jpg);
+  margin-left: auto;
+  margin-right: auto;
 }
 div.habitat {
   width: 50vw; 
@@ -1677,13 +1698,46 @@ ul.nav li.ember-view {
   background-size: 80% 80%;
 }
 
-hr {
+hr.headline {
   margin: 25px 0;
   height: 1px;
   background: #a8a8a8;
   background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #a8a8a8));
 }
-
+hr.maps-hr {
+  background: white 	!important;
+  height: 1px		!important;
+  width: 100%		!important;
+  border: none		!important;
+  margin: 0px auto 0px auto !important;
+  padding: none		!important;
+}
+hr.maps-hr2 {
+  background: white 	!important;
+  height: 1px		!important;
+  width: 100%		!important;
+  border: none		!important;
+  margin: 0px auto 0px auto !important;
+  padding: none		!important;
+}
+p.map-step {
+  color: white;
+  font-family: "Oswald", sans-serif !important;
+  padding-top: 5%;
+  font-size: 1.5em;
+}
+div.map-legend > p {
+  color: white;
+  font-family: "Oswald", sans-serif !important;
+  padding-top: 200px;
+}
+.map-legend2 {
+  color: white;
+  font-family: "Oswald", sans-serif !important;
+}
+div.btn-row {
+  margin: 0px;
+}
 .leftAlign {
   text-align: left;
 }
@@ -1756,8 +1810,9 @@ div.center {
 }
 
 img.img-chart {
-  width: 25vw;
+  width: 30vw;
   height: auto;
+  
 }
 
 img.img-fig {
@@ -1765,7 +1820,8 @@ img.img-fig {
 }
 
 .btn-chart {
-  padding: 0%;
+  padding: 0;
+  margin: 2%;
   height: 100%;
   background: none;
   background-image: none;
