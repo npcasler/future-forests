@@ -251,7 +251,7 @@ label {
   box-shadow: 1px 1px 2px 2px #000;
   border: 1px solid white; 
   color: #fff;
-  font-size: 1.5em; 
+  font-size: 1em; 
   font-weight: 600;
   text-decoration: none !important;
   text-shadow: none;
@@ -295,7 +295,7 @@ label {
   box-shadow: 1px 1px 2px 2px #000;
   border: 1px solid white; 
   color: #fff;
-  font-size: 1.5em; 
+  font-size: 1em; 
   font-weight: 600;
   text-decoration: none !important;
   text-shadow: none;
@@ -1670,7 +1670,7 @@ div.uagist {
   width: 80%;
   z-index: 20;
  
-  padding: 5% 0 0 0;
+  padding:0;
   text-align: center;
 }
 
@@ -1704,6 +1704,7 @@ hr.headline {
   background: #a8a8a8;
   background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #a8a8a8));
 }
+ 
 hr.maps-hr {
   background: white 	!important;
   height: 1px		!important;
@@ -1723,7 +1724,7 @@ hr.maps-hr2 {
 p.map-step {
   color: white;
   font-family: "Oswald", sans-serif !important;
-  padding-top: 5%;
+  padding-top: 2%;
   font-size: 1.5em;
 }
 div.map-legend > p {
@@ -1735,6 +1736,26 @@ div.map-legend > p {
   color: white;
   font-family: "Oswald", sans-serif !important;
 }
+@media screen and (max-height: 1024px){
+  div.earth1024 {
+    height: 66vw;
+  }
+}
+@media screen and (max-height: 768px){
+  div.earth768 {
+    height: 42vw;
+  }
+}
+
+div.earth-calc {
+  height: calc(100%-200px) !important;
+//  height: 100%;
+//  height: -webkit-calc(100%-200px);
+//  height: -moz-calc(100%-200px);
+//  height: -o-calc(100%-200px);
+//  height: -ms-calc(100%-200px);
+}
+
 div.btn-row {
   margin: 0px;
 }
@@ -1810,7 +1831,7 @@ div.center {
 }
 
 img.img-chart {
-  width: 30vw;
+  width: 25vw;
   height: auto;
   
 }
@@ -1821,7 +1842,7 @@ img.img-fig {
 
 .btn-chart {
   padding: 0;
-  margin: 2%;
+  margin: 0 2% 2% 2%;
   height: 100%;
   background: none;
   background-image: none;
