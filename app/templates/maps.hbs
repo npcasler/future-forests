@@ -1,7 +1,7 @@
 <div class="bcg  full" id="screen-maps" data-video="http://player.vimeo.com/external/97766233.sd.mp4?s=5df211c4da525ce8da33fddd981d52df">
   <div class="row"><!-- full height -->
     <div class="col-sm-12 map-overlap">
-      <div class="col-md-3 full-height" style="padding-top: 9%;">
+      <div class="col-md-3 full-height" style="padding-top: 10%;">
         <div class="form-horizontal span8" style="width=100%;">
           <p id="plant-desc" class="map-step" >Step 1: Choose a Species</p>
 	  <p><hr class="maps-hr"></p>
@@ -40,10 +40,10 @@
           <div id="year-group" class="form-group btn-group" style="visibility:hidden; vertical-align:center">
           <p id="year-desc" class="map-step" style="padding-top: 5%;">Step 3: Pick a year<hr class="maps-hr"></p>
           <button class="col-sm-6 btn-control" {{action "switchCurrent"}} value="2011" id="current">
-            <h3 style="font-size:1.2em;">Now</h3>
+            <h3 class="map-year">Now</h3>
           </button>
           <button class="col-sm-6 btn-control" {{action "switchFuture" }} value="2081" id="future">
-            <h3 style="font-size:1.2em;">2081</h3>
+            <h3 class="map-year">2081</h3>
           </button>
           </div>
           <div id="slider-group" class="form-group" style="display:none; vertical-align:center">
@@ -53,7 +53,7 @@
           </div>
           <div id="submit-group" class="form-group" style="visibility:hidden;">
             <div class="col-sm-12" style="margin-bottom: 15px">
-              <p id="submit-desc" style="color:white; margin-top: 20px;">Step 4: Get the map</p>
+              <p id="submit-desc" style="color:white; margin-top: 20px;font-family: 'Oswald', sans-serif !important;" >Step 4: Get the map</p>
 
               <button type="submit" id="map-submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <i class="spinner"><div class="glyphicon glyphicon-refresh"></div></i><span class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></span></button>
             </div>
@@ -94,7 +94,7 @@
         </div>
         <div class="form-group" id="animate-group" style="visibility:hidden">
         <p style="color:white; margin-bottom: -15px; font-weight: bold">Play/Pause</p>
-        <div class="map-animation">
+        <div class="map-animation-play">
           {{view Ember.Checkbox checkedBinding="isAnimated" id="animate-control"}}
           <br>
           <label for="animate-control"></label>
