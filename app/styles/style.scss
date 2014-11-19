@@ -123,7 +123,7 @@ label {
   padding-bottom: 15px;
   color: red;
   box-shadow: none;
-  font-weight: 500;
+  //font-weight: 500;
 }
 
 .btn-forests {
@@ -134,7 +134,7 @@ label {
   border: #118C4E;
   color: #118C4E;
   letter-spacing: 1px;
-  font-weight: 600;
+  //font-weight: 300;
   text-decoration: none !important;
   text-shadow: none;
   text-transform: uppercase;
@@ -208,7 +208,7 @@ label {
   border: solid white 1px; 
   color: #fff;
   letter-spacing: 1px;
-  font-weight: 600;
+  //font-weight: 300;
   font-size: 1.5em;
   text-align: justify;
   text-shadow: none;
@@ -252,7 +252,7 @@ label {
   border: 1px solid white; 
   color: #fff;
   font-size: 1em; 
-  font-weight: 600;
+  //font-weight: 300;
   text-decoration: none !important;
   text-shadow: none;
   text-transform: uppercase;
@@ -267,7 +267,7 @@ label {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  font-weight: 800;
+  //font-weight: 800;
   /*-webkit-transform: scale(1.1);*/
   /*-moz-transform: scale(1.1);*/
   border: 2px dashed white; 
@@ -296,7 +296,7 @@ label {
   border: 1px solid white; 
   color: #fff;
   font-size: 1em; 
-  font-weight: 600;
+  //font-weight: 300;
   text-decoration: none !important;
   text-shadow: none;
   text-transform: uppercase;
@@ -311,7 +311,7 @@ label {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  font-weight: 700;
+  //font-weight: 700;
   /*-webkit-transform: scale(1.1);*/
   /*-moz-transform: scale(1.1);*/
   border: 2px dashed white; 
@@ -331,7 +331,7 @@ label {
   border: 3px solid #fff;
   overflow: hidden;
   text-transform: uppercase;
-  font-weight: 700;
+  ////font-weight: 300;
   box-sizing: border-box;
   font: -webkit-small-control;
   -webkit-transition: all 0.3s ease-in;
@@ -348,7 +348,7 @@ label {
  .btn-map:hover {
     
     background: rgba(0,0,0,0.3);
-    font-weight: 900;
+    //font-weight: 900;
     -webkit-background-origin: padding-box;
     -moz-background-origin: padding-box;
     background-attachment: scroll;
@@ -365,7 +365,7 @@ label {
 }
 .btn-map:active {
   background: rgba(0,0,0,0.3);
-  font-weight:900;
+  //font-weight:900;
   border: 2px solid #bf3604;
   color: #bf3604;
   cursor: progress;
@@ -429,12 +429,12 @@ label {
   transition-duration: 0.3s;
   transition-property: all;
   transition-timing-function: ease-in;
-  font-weight: 500;
+  font-weight: 300 !important;
 }
 .rcp-label:hover {
   
   background: rgba(0,0,0,0.6);
-  font-weight: 800;
+  //font-weight: 800;
   
   -webkit-background-origin: padding-box;
   -moz-background-origin: padding-box;
@@ -459,10 +459,12 @@ label {
 h1, h2, .h1, .h2  {
   font-family: 'Oswald', sans-serif;
   text-shadow: 2px 2px 4px #000000;
+  //font-weight: 300;
 }
 
 h3, h4, h5, h6, p, div {
-  font-family: 'Libre Baskerville', serif!important;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
 }
 
 
@@ -1004,7 +1006,11 @@ h3.map-year {
  font-family: 'Oswald', sans-serif !important;
  font-size: 1.2em;
  }
- 
+
+div.maps-form {
+  width: 100%;
+}
+
 
 .methods-container {
   position: relative;
@@ -1016,7 +1022,7 @@ h3.map-year {
   padding-top: 100px;
   background: rgba(0,0,0,0.4);
   color: white;
-  font-family: 'BebasNeueRegular', sans-serif!important;
+  font-family: 'Oswald', sans-serif!important;
   font-size: 160%;
 }
 
@@ -1067,7 +1073,7 @@ h3.map-year {
   outline: 0;
   -moz-box-shadow: none;
   box-shadow: none;
-  font-weight: 800;
+  //font-weight: 300;
   -webkit-transform: scale(1.1);
   border: 2px dashed white; 
 }
@@ -1085,7 +1091,6 @@ div.worst-case-label {
   height: 60px;
   width: 60px;
   padding: 5px;
-  
   margin-left: auto;
   margin-right: auto;
   background: url(../images/stable_red_60.png) no-repeat 0 0;
@@ -1400,7 +1405,8 @@ div.sfi {
   position: absolute;
   text-align: center;
   width: 100%;
-  font-family: 'Libre Baskerville' serif;
+  font-family: 'Oswald', 'sans-serif';
+  //font-weight: 400!important;
   border: none;
   color: white;
   top: 20%;
@@ -1578,7 +1584,7 @@ div.sfi {
 	font-style: normal;
 	color: #fff;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.1);
-	font-weight: bold;
+	//font-weight: bold;
 	/*-webkit-box-reflect: below 0px*/
 	/*	-webkit-gradient(linear, left top, left bottom,*/
 	/*	color-stop(0.5, transparent),*/
@@ -1687,7 +1693,7 @@ div.sfi {
 	font-style: normal;
 	color: #fff;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.1);
-	font-weight: bold;
+	//font-weight: bold;
 	/*-webkit-box-reflect: below 0px*/
 	/*	-webkit-gradient(linear, left top, left bottom,*/
 	/*	color-stop(0.5, transparent),*/
@@ -1979,7 +1985,7 @@ img.img-fig {
   color: #118C4E;
   font-size: .75em;
   letter-spacing: 1px;
-  font-weight: 600;
+  //font-weight: 300;
   text-decoration: none !important;
   text-shadow: none;
   text-transform: uppercase;
@@ -2072,7 +2078,7 @@ a.aces-link:hover {
   display: inline;
   color: #fff;
   letter-spacing: 1px;
-  font-weight: 600;
+  //font-weight: 300;
   font-size: 1.5em;
   text-align: justify;
   text-shadow: none;
