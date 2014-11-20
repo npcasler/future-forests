@@ -191,10 +191,25 @@ label {
 
 #banner-text:hover {
   color: red;
-  
   text-decoration: none;
 }
+.explore-text {
+  font-family: 'Oswald', 'sans';
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align:center;
+  text-shadow: 2px 2px 4px #000000;
+  border:none;
+  transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+}
 
+.explore-text:hover {
+  color: red;
+  text-decoration: none;
+}
 .btn-text {
 //  font-family: 'LibreBaskerville', serif;
   font-family: 'Oswald', 'sans';
@@ -663,6 +678,28 @@ h3, h4, h5, h6, p, div {
 
 #lost-references {
   background: url(../images/IMG_8017.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+#about-1 {
+  background: url(../images/DSC_5690.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-2 {
+  background: url(../images/DSC_4382.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-3 {
+  background: url(../images/DSC_4216.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-4 {
+  background: url(../images/DSC_4048.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-5 {
+  background: url(../images/DSC_5290.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-6 {
+  background: url(../images/DSC_5121.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-7 {
+  background: url(../images/DSC_5121.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
 }
 
 .highlight {
@@ -1400,6 +1437,13 @@ div.sfi {
   overflow: hidden;
   z-index: 3;
 }
+span.bannerContainer:hover {
+  border-style: 2px dashed white;
+  color: red;
+//  background-color: rgba(0,0,0,0.6);
+//  background: none;
+}
+
 
 .slogan-container {
   position: absolute;
@@ -1564,7 +1608,7 @@ div.sfi {
 
 
 .map-animation label {
-	width: 73px;
+	width: 68px;
 	height: 30px;
 	display: inline-block;
 	//margin-top: 100px;
@@ -1673,7 +1717,7 @@ div.sfi {
 
 
 .map-animation-play label {
-	width: 73px;
+	width: 68px;
 	height: 30px;
 	display: inline-block;
 	//margin-top: 100px;
@@ -1712,15 +1756,17 @@ div.sfi {
 }
 .map-animation input[type=checkbox]:checked ~ label.attention:hover:before  {
 	
-  content: "";
+  content: ""; 
 	font-size: 14px
 }
 
 
 
 .map-animation-play label:before {
-  font-family: FontAwesome;
-	content: "";
+/*  font-family: FontAwesome; */
+  font-family: 'Oswald', sans-serif;
+/*	content: ""; */
+  content: 'Play';
 	margin-left: 18px;
 	text-transform: uppercase;
 	-webkit-transition: all 200ms ease;
@@ -1733,9 +1779,10 @@ div.sfi {
 
 
 .map-animation-play input[type=checkbox]:checked ~ label:before {
-	content: "";
+/* 	content: ""; */
+  content: 'pause';
 	text-transform: uppercase;
-	margin-right: 30px;
+	margin-right: 14px;
 	margin-left: 0;
 }
 
@@ -2038,12 +2085,12 @@ img.img-fig {
 a.aces-link:link {
   font-style: italic !important;
   text-decoration: underline;
-  color: #ebebeb !important;
+  color: #000 !important;
 }
 a.aces-link:visited {
   font-style: italic !important;
   text-decoration: underline;
-  color: #ebebeb !important;
+  color: #000 !important;
 }
 a.aces-link:hover {
   font-style: italic !important;
@@ -2053,12 +2100,12 @@ a.aces-link:hover {
 #who-links a:link {
 //  font-style: italic !important;
   text-decoration: underline;
-  color: #ebebeb !important;
+  color: #000 !important;
 }
 #who-links a:visited {
 //  font-style: italic !important;
   text-decoration: underline;
-  color: #ebebeb !important;
+  color: #000 !important;
 }
 #who-links a:hover {
 //  font-style: italic !important;
