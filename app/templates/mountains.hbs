@@ -1,0 +1,30 @@
+<section class="full-height">
+  <div class="bcg">
+    <div class="fill-lite" style="background: none">
+      <div class="hsContainer"> 
+        <div {{bind-attr id="headline.mountainName"}} class="row chartContent full-height center chartDetail" style="height: 100%;">
+          <div class="row">
+            <div class="col-md-12 chartAlign" style="height:100%; width:100%;">
+              {{#each mountain in Mountains}}
+                {{view "mountain"}}
+              {{/each}}
+            </div>
+          </div>
+          <div {{bind-attr id="headline.mountainContainer"}} class="row">
+             <div class="col-md-6 chartAlign" >
+                 <img {{bind-attr id="headline.bestContainer"}}class="img-chart" ></img>
+             </div>
+             <div class="col-md-6">
+                 <img {{bind-attr id="headline.bestContainer"}} class="img-fig"></img>
+             </div>
+             <div class="row col-md-12">
+                 <button class="btn-chart" {{action "toggleMountain"}}>Close mountainView<i class="glyphicon glyphicon-chevron-up"></i></button>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
