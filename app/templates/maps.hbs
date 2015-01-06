@@ -3,7 +3,9 @@
     <div class="col-sm-12 map-overlap">
       <div class="col-md-3 full-height" style="padding-top: 10%;">
         <div class="form-horizontal span8" style="width=100%;">
-          <p id="plant-desc" class="map-step" >Step 1: Choose a Species</p>
+         <div id="plant-desc" class="map-step" >Step 1: Choose a Species 
+         <div id="maptips" class="tip1">&nbsp;<span class="tips"><h3>How do I get a map?</h3><br><h4>Follow these steps to get a map.</h4><ol><li>Select your desired tree species.</li><li>Select desired climate scenario.</li><li>Pick a year</li><li>Select GET MAP to refresh Google Earth with your desired selections.</li></ul></span></div>
+         </div>
 	  <p><hr class="maps-hr"></p>
           <div class="form-group" style="margin:0px !important;">
             <div class="controls">
@@ -18,26 +20,29 @@
             </div>
           </div>
           <div id="rcp-group" class="rcp-toolbar btn-group" style="visibility:hidden; vertical-align:center;width:100%;"> 
-          <p id="rcp-desc" class="map-step">Step 2: Choose a <br>Climate Scenario<hr class="maps-hr"></p>
+          <div id="rcp-desc" class="map-step">Step 2: Choose a Climate Scenario
+          <div id="maptips" class="tip2">&nbsp;<span class="tips">The best-case climate change scenario (rcp 2.6) is where CO<sub>2</sub> emissions rise from current-day rates of ~9 billion tons per year, peak around mid-21<sup>st</sup> century, then decline to zero by the end of the 21<sup>st</sup> century. Under the worst-case scenario (rcp 8.5) - "business as usual" - emissions continue to rise at a relatively high rate throughout most of the 21<sup>st</sup> century, then stabilize at ~30 billion tons per year by the end of the century. See <a href="#/headlines/climate">Forest Change</a> for more information.</span></div>
+          </div>
+          <p><hr class="maps-hr"></p>
           <div class="btn-row" style="margin-bottom: 5px;">
           <div class="col-sm-6 btn-temp" id="rcp26-label">
               {{view Forests.RadioButton id="best-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp26"}}
             <label class="rcp-label" for="best-case">
              <div class="best-case-label"></div>
-             Best
+             Best Case
             </label>
           </div>
           <div class="col-sm-6 btn-temp" id="rcp85-label">
               {{view Forests.RadioButton id="worst-case" class="rcp-radio" selectionBinding="selectedRcp" value="rcp85"}}
             <label  class="rcp-label" for="worst-case">
             <div class="worst-case-label"></div>
-            Worst
+            Worst Case
             </label>
           </div>
           </div>
           </div>
           <br>
-          <div id="year-group" class="form-group btn-group" style="visibility:hidden; vertical-align:center">
+          <div id="year-group" class="form-group btn-group" style="visibility:hidden; vertical-align:center;width:100%;">
           <p id="year-desc" class="map-step" style="padding-top: 5%;">Step 3: Pick a year<hr class="maps-hr"></p>
           <button class="col-sm-6 btn-control" {{action "switchCurrent"}} value="2011" id="current">
             <h3 class="map-year">Now</h3>
@@ -47,13 +52,13 @@
           </button>
           </div>
           <div id="slider-group" class="form-group" style="display:none; vertical-align:center">
-          <p id="slider-desc" style="color:white; margin-top: 20px">Step 3: Slide through years</p>
+          <p id="slider-desc" style="color:white; margin-top: 20px;font-size:1.5em;">Step 3: Slide through years</p><hr class="maps-hr"><p></p>
           <h3 id="period" style="color:white"></h3>
           {{view Forests.SliderView id="time-slider" style="min-height: 20px"}}
           </div>
           <div id="submit-group" class="form-group" style="visibility:hidden;">
             <div class="col-sm-12" style="margin-bottom: 15px">
-              <p id="submit-desc" style="color:white; margin-top: 20px;font-family: 'Oswald', sans-serif !important;" >Step 4: Get the map</p>
+              <p id="submit-desc" style="color:white; margin-top: 20px;font-size:1.5em;" >Step 4: Get the map</p><hr class="maps-hr"><p></p>
 
               <button type="submit" id="map-submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>Get Map <i class="spinner"><div class="glyphicon glyphicon-refresh"></div></i><span class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></span></button>
             </div>
@@ -61,16 +66,27 @@
           <div class="cycle-group" class="form-group" style="display:none">
           <button id="map-animate" class="btn btn-map" {{action 'toggleCycle' target="view.earthInstance"}}><i id="animate-icon" class="glyphicon glyphicon-play"></i><i id="pause-icon" class="glyphicon glyphicon-stop"i style="display:none"></i></button></div>
 
-          <div class="form-group">
+          <div class="form-group" style="margin-bottom: 0px !important;">
             <!--label for="location" class="col-sm-2 control-label" style="color=white;">Location</label-->
-            {{input action='geocode' onEvent="enter"  valueBinding="selectedAddress" target='view.earthInstance' style="width:100%;"placeholder=" Search by location"}}
+            {{input type='text' insert-newline='geocode'  valueBinding="selectedAddress" targetObject=view style="width:100%;"placeholder=" Search by location"}}
             <button class="btn-control" {{action 'geocode' target='view.earthInstance'}}><i class="glyphicon glyphicon-arrow-right"></i></button>
           </div>
         </div>
       </div>
       <div class="col-md-1 map-legend">
-       
-        <p><b>Suitability</b></p>
+        <div style="padding-top:0px"></div>
+        <p style="font-weight:500;padding-top:15.7vw !important;margin-bottom: 0px !important;">LEGEND<hr style="margin-top: 10px !important;"></p>
+        <div style="color:white;margin-bottom: 10px !important;">Suitability
+        <div id="maptips" class="tip3">&nbsp;
+          <span class="tips"><h3>About Suitablility Legend</h3><p>Different shades of suitability measures how likely the local climate will match the temperature, precipitation, and seasonality requirements for the species of interest.</p>
+            <ul class="suitability">
+              <li style="margin-bottom:10px;" ><u><b>High</b></u>- High likelihood species will thrive and grow in most locations. Species likely to be most common here.</li>
+              <li style="margin-bottom:10px;"><u><b>Medium</b></u>- Some likelihood that area will support growth of species but abundance will be more variable.</li>
+              <li class="suitability"><u><b>Low</b></u>- Low likelihood that species will be present. Species will likely be quite rare and isolated to specific microevironments.</li>
+            </ul>
+          </span>
+        </div>        
+        </div>
         <div class="row">
          <p class="map-legend2">High</p><div class="oval-high"></div>
         </div>
@@ -83,7 +99,7 @@
         <div class="row" style="text-align:center">
           
         </div>
-        <div class="form-group" id="slider-control" style="visibility: hidden; margin-top:35px;">
+        <div class="form-group" id="slider-control" style="visibility: hidden; margin-top:70px;">
         <p style="color:white; margin-bottom: -15px;">Animate</p>
         <div class="map-animation" >
           <!---input type="checkbox" id="buttonThree"  /--->
@@ -101,7 +117,7 @@
         </div>
         </div>
       </div>
-      <div class="col-md-8 full-height pull-right earth1024 earth768" style="padding-top:120px;">
+      <div class="col-md-8 full-height pull-right ge" style="padding-top:120px;">
 
         {{view 'earth' viewName="earthInstance"}}
     </div>

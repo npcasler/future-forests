@@ -8,6 +8,13 @@
         <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Learn More  <i class="glyphicon glyphicon-chevron-down"></i></button>
         {{else}}
         {{/if}}
+        <div class="down-arrow">
+          {{#if headline.down}}
+          {{else}}
+          <!--<span class="glyphicon glyphicon-arrow-down"</span>-->
+          <div class="svg-down-arrow">&nbsp;</div>
+          {{/if}}
+        </div>
       </div>
     </div>
   </div>
@@ -32,6 +39,12 @@
     </div>
     {{render "charts"}} 
   {{else}}
+  {{/if}}
+  {{#if headline.mountain}}
+    <div class="row textMd">
+      Click on a location name<br><br>
+      </div>
+      {{render "mountains"}}
   {{/if}}
     
    <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Close <i class="glyphicon glyphicon-chevron-up"></i></button>

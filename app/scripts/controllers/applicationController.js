@@ -3,6 +3,7 @@ Forests.ApplicationController = Ember.ArrayController.extend({
   BV: null,
   selectedScreen: null,
   currentPathChange: function() {
+    window.scrollTo(0, 0);
     this.set('selectedScreen', '#screen-' + this.get('currentPath'));
      
     console.log("Path is "+ this.get('currentPath'));

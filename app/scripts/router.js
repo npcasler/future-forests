@@ -1,7 +1,7 @@
 Forests.Router.map(function () {
   this.route("splash");
   this.route("welcome", { path: "/"});
-  this.route("about", {path: "/about"});
+  this.route("about", {path: "about"});
   this.route('summary', {path: "/forest-loss"});
   this.resource("highlights", function() {
     this.resource("highlight", { 'path': '/:classId' });
@@ -14,6 +14,7 @@ Forests.Router.map(function () {
   this.resource("headlines", {path: '/headlines/:pageId'});
   
   this.resource('charts', {path: '/charts'}); 
+  this.resource('mountains',{path: '/mountains'});
 
  //   this.resource("headline", { 'path': '/classId' });
   

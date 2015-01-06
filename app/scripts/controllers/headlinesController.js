@@ -1,5 +1,5 @@
 Forests.HeadlinesController = Ember.ArrayController.extend({
-  needs: 'charts',
+  needs: ['charts','mountains'],
   sortProperties: ['orderId'],
   sortAscending: true, //false = descending
 

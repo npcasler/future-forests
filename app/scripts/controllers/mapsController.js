@@ -225,11 +225,11 @@ Forests.MapsController = Ember.ObjectController.extend({
 
     addKmzFromUrl: function(kmzUrl) {
       var link = ge.createLink('');
-      link.setHref('http://scooby.iplantcollaborative.org/' + kmzUrl + '.kmz');
+      link.setHref('http://scooby.iplantcollaborative.org/' + kmzUrl + '.kml');
       console.log("Loading kmz from " + kmzUrl);
       console.log(link);
-      //outerraLink.setLink(link);
-      //outerraFolder.getFeatures().appendChild(outerraLink);
+      outerraLink.setLink(link);
+      outerraFolder.getFeatures().appendChild(outerraLink);
     },
 
     removeLayers: function() {
@@ -242,6 +242,12 @@ Forests.MapsController = Ember.ObjectController.extend({
         console.log("Folder length is: " + folders[i].getFeatures().getChildNodes().getLength());
         if (folders[i].getFeatures().getChildNodes().getLength() > 0) {
           folders[i].getFeatures().removeChild(links[i]);
+          console.log('Ready to clear outerra layers..');
+          //Clear outerra layers as well
+          if (outerraFolder.getFeatures().getChildNodes().getLength() > 0) {
+            outerraFolder.getFeatures().removeChild(outerraLink);
+            console.log('..outerra layers cleared');
+          }
         } else {
           console.log("No layers to remove from folder. Continuing...");
       }
@@ -323,7 +329,7 @@ Forests.MapsController = Ember.ObjectController.extend({
           }
         console.log('layers loaded.');
         var outerraUrl = 'outerra/' + rcp;
-        console.log('OuterraUrl is ' + 'http://scooby.iplantcollaborative.org/'+outerraUrl+'.kmz');
+        console.log('OuterraUrl is ' + 'http://scooby.iplantcollaborative.org/'+outerraUrl+'.kml');
         this.addKmzFromUrl(outerraUrl);
       } else {
         console.log('Missing required variables');
@@ -336,7 +342,7 @@ Forests.MapsController = Ember.ObjectController.extend({
       console.log(geocoder);
       geocoder.geocode({
         'address': this.get('selectedAddress')}, function(results, status) {
-          console.log('Geocoding...');
+          console.log('MapsController called geocode');
           if (status == google.maps.GeocoderStatus.OK) {
             //do something with the result like flying into it
             var point = results[0].geometry.location;
