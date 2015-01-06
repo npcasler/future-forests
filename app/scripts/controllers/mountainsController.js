@@ -3,8 +3,13 @@ Forests.MountainsController = Ember.ArrayController.extend({
   needs: ['headlines'],
   mountainNames: 'null',
   mountainContainer: 'null',
-  bestContainer: 'null',
-  worstContainer: 'null',
+  combinedContainer: 'null',
+
+  localMountains: function () {
+    return this.filterBy('scale', 'local');}.property('@each.scale'),
+
+  globalMountains: function () {
+    return this.filterBy('scale', 'global');}.property('@each.scale'),
 
  
   toggleSize: function(openVal) {
@@ -15,14 +20,14 @@ Forests.MountainsController = Ember.ArrayController.extend({
     
     if (openVal) {
       console.log('Opening mountains...');
-      $(this.mountainContainer).css("max-height", "3600px"); 
+      $(this.mountainContainer).css("max-height", "3600px");
       console.log($(this.mountainContainer).css('max-height'));
-      $(window).scrollTo($(this.mountainNames).offset().top -125, {duration: 'fast', easing: 'swing', offsetTop:''});
+      $(window).scrollTo($(this.mountainNames).offset().top -125, {duration: 'slow', easing: 'swing', offsetTop:''});
     } else {
       console.log('Closing mountains..');
       $(this.mountainContainer).css("max-height", "0px");
-      $(this.mountainContainer).css("overflow", "hidden");
-      $(window).scrollTo($(this.mountainNames).offset().top -125, {duration: 'fast', easing: 'swing', offsetTop:''});
+      
+      $(window).scrollTo($(this.mountainNames).offset().top -300, {duration: 'slow', easing: 'swing', offsetTop:''});
     }
 
   },
@@ -30,27 +35,26 @@ Forests.MountainsController = Ember.ArrayController.extend({
   actions: {
     getMountains: function(mountain) {
       console.log('GetMountain called');
-      this.set('mountainNames' ,'#' +mountain.get('') + '-names');
-      this.set('mountainContainer', '#' +mountain.get('e') + '-container');
-      this.set('bestContainer', '#' + mountain.get('') + '-best');
-      this.set('worstContainer','#' + mountain.get('') + '-worst');
-      console.log(this.worstContainer);
+//      this.set('mountainNames','#aspen-names');
+      this.set('mountainNames', '#' +mountain.get('scale') + '-names');
+      this.set('mountainContainer', '#'+mountain.get('scale')+'-container');
+      this.set('combinedContainer','#'+mountain.get('scale')+'-combined');
+      console.log(this.combinedContainer);
       this.toggleSize(1);
-      this.set('selectedMountain', mountain.get('name'));
       console.log(this.get('selectedMountain'));
       console.log(mountain.get('name'));
-      console.log(mountain.get('bestUrl'));
-      console.log(mountain.get('worstUrl'));
-      console.log('$("'+this.mountainContainer+'").attr("src","'+mountain.get('worstUrl')+'")');
-
-       $(this.mountainContainer).attr('src',mountain.get('worstUrl'));
-      console.log($(this.worstContainer).attr('src'));
-            $(this.bestContainer).attr('src', mountain.get('figureUrl'));
+      console.log(mountain.get('combinedUrl'));
+      console.log('$("'+this.mountainContainer+'").attr("src","'+mountain.get('combinedUrl')+'")');
+      
+      $(this.combinedContainer).attr('src',mountain.get('combinedUrl'));
+ //      this.set('selectedMountain',mountain.get('name'));
+       console.log($(this.combinedContainer).attr('src'));      
+       
             
     }   
   },
   
-  toggleChart: function () {
+  toggleMountain: function () {
     
    this.toggleSize(0);
 
