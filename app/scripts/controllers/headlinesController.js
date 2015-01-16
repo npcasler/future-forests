@@ -47,6 +47,18 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
     }
 
   },
+
+  scrollToHeadline: function(headline) {
+    console.log('scrollToHeadline called.');
+    console.log(headline);
+    var headlineId = '#'+headline;
+    var scrollId = headlineId + '-scroll';
+    console.log("ScrollId is "+scrollId);
+    $('body').scrollTo($(headlineId), {duration: 'slow', easing: 'swing'});
+    $(scrollId).addClass('active');
+
+
+  },
   
 
 

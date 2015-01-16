@@ -20,7 +20,7 @@ require('scripts/routes/*');
 require('scripts/views/*');
 require('scripts/router');
 
-(function( $ ) {
+/*(function( $ ) {
   //Init Skrollr
   var s = skrollr.init({
     render: function(data){
@@ -29,7 +29,7 @@ require('scripts/router');
     }
   });
 }) ( jQuery );
-
+*/
 //(function( $ ) {
   //init bigVideo
   //
@@ -57,6 +57,24 @@ Ember.View.reopen({
     
     
     }
-  });*/
+  });
+Ember.View.reopen({
+  init: function() {
+    this._super();
+    var self = this;
+
+    //bind attributes with 'data-'
+    Em.keys(this).forEach(function(key) {
+      if (key.substr(0, 5) === 'data-') {
+        console.log(key);
+        attributeBindings = self.get('attributeBindings');
+        //var length = attributeBindings.length;
+        //attributeBindings.insertAt(length, key);
+        console.log(attributeBindings);
+        //self.get('attributeBindings').pushObject(key);
+      }
+    });
+  }
+});*/
 
 Forests.advanceReadiness();

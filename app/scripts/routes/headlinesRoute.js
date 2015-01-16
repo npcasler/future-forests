@@ -3,7 +3,7 @@ Forests.HeadlinesRoute = Ember.Route.extend({
    
     console.log("Headlines route hit");
     console.log("parameter is "+ params.pageId);
-   
+    s = skrollr.init();   
 
    return  this.get('store').find('headline', {pageId: params.pageId});
    },
