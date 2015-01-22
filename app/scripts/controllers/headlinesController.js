@@ -41,16 +41,21 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
     return res;
   },
 
-  logId: function(elem,idx, arr) {
-    id = '#'+elem;
-    pos = $(id).offset().top;
-    console.log(id + ": " + pos);
-
+  logId: function(elem,idx,arr) {
+    var id = '#'+elem;
+    var pos = $(id).offset().top;
+    var arr = [];
+    arr[idx] = [id,  pos];
+     
+    return arr;
   },
   getPositions: function() {
-    arr = this.get('classArray');
-    classArray.forEach(this.logId);
+    var arr = this.get('classArray');
+    arr.forEach(this.logId);
+
+    return arr;
   },
+
   modelDidChange: function() {
     console.info(this.get('model').type);
     classArray = this.get('model').mapBy('classId');
@@ -108,6 +113,8 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
   },
   headlineScrolled: function() {
     var currentScroll = $(window).scrollTop();
+    var elems = this.getPositions();
+    console.log(elems);
     if (currentScroll > this.get('previousScroll')) {
       console.log('down');
       
