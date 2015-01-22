@@ -2,6 +2,8 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
   needs: ['charts','mountains'],
   sortProperties: ['orderId'],
   sortAscending: true, //false = descending
+  previousScroll: $(window).scrollTop(),
+  classArray: [],
 
   /*filteredHeadlines: function() {
     var page = this.get('page');
@@ -29,6 +31,93 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
     return this.filterBy('pageId', 'lost');
   }.property('@each.pageId'),
 
+  getMethods: function(obj) {
+    var res = [];
+    for (var m in obj) {
+      if (typeof obj[m] == "function") {
+        res.push(m);
+      }
+    }
+    return res;
+  },
+
+  logId: function(elem,idx, arr) {
+    id = '#'+elem;
+    pos = $(id).offset().top;
+    console.log(id + ": " + pos);
+
+  },
+  getPositions: function() {
+    arr = this.get('classArray');
+    classArray.forEach(this.logId);
+  },
+  modelDidChange: function() {
+    console.info(this.get('model').type);
+    classArray = this.get('model').mapBy('classId');
+    //classArray.forEach(this.logId);
+  }.observes('model.isLoaded'),
+  bindScrolling: function(opts) {
+    var onScroll, _this =this;
+    //opts = opts || {debounce: 100};
+     console.log("CONSOLE CAN YOU HEAR ME?");
+     //var model = _this.get('model');
+     //console.log(model.type);
+     //methods = this.getMethods(model);
+     //console.log(methods);
+
+
+      /*$('div.right-nav-icon').each(function(index) {
+        var navId = $(this).attr('id');
+        var headlineId  = "#" + navId.substring(0, navId.length - 7);
+        console.log(headlineId);
+        //arr.push(headlineId);
+        //ar.push(headlineId);
+        //console.log(ar);
+      });*/
+      //console.log(arr);
+
+    
+
+    onScroll = function() {
+      //return _this.scrolled();
+      return _this.debounce(_this.headlineScrolled(), 200);
+    };
+    $(document).bind('touchmove', onScroll);
+    $(window).bind('scroll', onScroll);
+    },
+  scrolled: function() {
+    console.log('MapsController was scrolled');
+    console.log($(window).scrollTop());
+  },
+
+  debounce: function(func,wait,immediate) {
+    var timeout;
+    return function() {
+      var context = this,
+          args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(function() {
+        timeout = null;
+        if (!immediate) {
+          func.apply(context,args);
+        }
+      }, wait);
+      if (immediate && !timeout)
+        func.apply(context,args);
+    };
+  },
+  headlineScrolled: function() {
+    var currentScroll = $(window).scrollTop();
+    if (currentScroll > this.get('previousScroll')) {
+      console.log('down');
+      
+    } else if (currentScroll < this.get('previousScroll')){
+      console.log('up');
+    } 
+    this.set('previousScroll', currentScroll);
+  },
+
+  
   actions: {
 
   toggleDetail: function(detail) {

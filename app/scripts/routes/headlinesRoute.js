@@ -3,7 +3,7 @@ Forests.HeadlinesRoute = Ember.Route.extend({
    
     console.log("Headlines route hit");
     console.log("parameter is "+ params.pageId);
-    s = skrollr.init();   
+    //s = skrollr.init();   
 
    return  this.get('store').find('headline', {pageId: params.pageId});
    },
@@ -17,5 +17,13 @@ Forests.HeadlinesRoute = Ember.Route.extend({
       this._super();
       window.scrollTo(0,120);
 
+      $('div.right-nav-icon').each(function(index) {
+        var navId = $(this).attr('id');
+        var headlineId  = "#" + navId.substring(0, navId.length - 7);
+        console.log(headlineId);
+        //arr.push(headlineId);
+        //ar.push(headlineId);
+        //console.log(ar);
+      });
   }
 });

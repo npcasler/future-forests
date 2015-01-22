@@ -1,6 +1,12 @@
-{{#each headline in controller}}
-  {{view Forests.HeadlineView}}
-  
-  
+<div id="rightNavContainer">
+  {{#each headline in controller}}
+    <div {{bind-attr id="headline.scrollId"}} {{action "scrollToHeadline" headline.classId}} data-0="background-color:rgb(1,27,59);" data-top="display:none !important;" {{bind-attr data-anchor-target=""}} class="right-nav-icon"></div>
+  {{/each}}
+</div>
 
+<div style="height:100%;position:absolute">
+{{#each headline in controller}}
+  {{view Forests.HeadlineView  contentBinding=this}}
 {{/each}}
+</div>
+

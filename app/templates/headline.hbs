@@ -11,8 +11,7 @@
         <div class="down-arrow">
           {{#if headline.down}}
           {{else}}
-          <!--<span class="glyphicon glyphicon-arrow-down"</span>-->
-          <div class="svg-down-arrow">&nbsp;</div>
+          <div class="svg-down-arrow" {{action "scrollToHeadline" headline.detailId}}>&nbsp;</div>
           {{/if}}
         </div>
       </div>

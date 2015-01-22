@@ -5,6 +5,16 @@ Forests.MountainsController = Ember.ArrayController.extend({
   mountainContainer: 'null',
   combinedContainer: 'null',
 
+  activeLink: function() {
+    $('.btn-chart').click(
+      function(highlight)
+      {
+        $('.btn-chart').removeClass('btn-chart-active');
+        $(highlight.currentTarget).addClass('btn-chart-active');
+      }
+    );
+  },
+
   localMountains: function () {
     return this.filterBy('scale', 'local');}.property('@each.scale'),
 
@@ -43,10 +53,24 @@ Forests.MountainsController = Ember.ArrayController.extend({
       this.toggleSize(1);
       console.log(this.get('selectedMountain'));
       console.log(mountain.get('name'));
+      console.log(mountain.get('detail'));
       console.log(mountain.get('combinedUrl'));
+      console.log(mountain.get('mountainTitle'));
+      this.set('mountainBest', '#'+ mountain.get('scale')+'-best');
+      this.set('mountainWorst', '#'+mountain.get('scale')+'-worst');
+      console.log('MountainBest is '+ this.mountainBest);
+      console.log('MountainWorst is ' + this.mountainWorst);
+      if (mountain.get('mountainTitle') === 'y') {
+        $(this.mountainBest).text('Best case greenhouse gas emission scenario');
+        $(this.mountainWorst).text('Worst case greenhouse gas emission scenario');
+      } else {
+        $(this.mountainBest).text('');
+        $(this.mountainWorst).text('');
+      }
       console.log('$("'+this.mountainContainer+'").attr("src","'+mountain.get('combinedUrl')+'")');
       
       $(this.combinedContainer).attr('src',mountain.get('combinedUrl'));
+
  //      this.set('selectedMountain',mountain.get('name'));
        console.log($(this.combinedContainer).attr('src'));      
        

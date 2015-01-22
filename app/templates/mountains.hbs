@@ -17,17 +17,12 @@
             </div>
           </div>
           <div {{bind-attr id="headline.mountainContainer"}} class="row mountain">
+             
               <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <h3>Best case greenhouse gas emission scenario</h3>           
-                </div>
-                <div class="col-md-6">
-                  <h3>Worst case greenhouse gas emission scenario</h3>
-                </div>
-                </div>
+              
+                <div class="row"><div class="col-md-6"><h3 {{bind-attr id="headline.mountainBest"}}></h3></div><div class="col-md-6"><h3 {{bind-attr id="headline.mountainWorst"}}></h3></div></div>
                 <div class="chartAlign">
-                  <img {{bind-attr id="headline.combinedContainer"}} class=""></img>
+                  <img style="width:83vw;" {{bind-attr id="headline.combinedContainer"}} class=""></img>
                   </div>
                 </div>
                 <div class="row col-md-12">

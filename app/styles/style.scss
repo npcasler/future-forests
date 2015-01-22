@@ -47,11 +47,36 @@ body {
   width: 100%;
 }
 
-label {
+label { 
   margin: 0px;
 }
 
- .nav  li {
+//navigation
+
+%vertical-align {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+div#rightNavContainer {
+  z-index: 1 !important;
+  position: fixed;
+  right: 40px;
+  padding-top: 120px;
+  @extend %vertical-align;
+}
+div.right-nav-icon {
+  margin: 25px 0px 25px 0px;
+  content: url(../images/right-nav-circle.png) no-repeat 0 0;
+}
+div.right-nav-icon:active {
+  content: url(../images/right-nav-circle-active.png) no-repeat 0 0;
+}
+div#rightNavContainer .active {
+  content: url(../images/right-nav-circle-active.png) no-repeat 0 0;
+}
+.nav  li {
   float: right;
 }
 
@@ -468,13 +493,13 @@ h3, h4, h5, h6, p, div {
 }
 
 #summary  {
-  background: url(../images/capitol_drainage.jpg); 
+  background: url(../images/DSC-tahoe-forests.jpg); 
   background-size: cover;
   background-attachment: fixed;
 }
 
 #cover-change{
-  background: url(../images/fall_aspens.jpg) 50% 0 no-repeat; background-size: cover;  
+  background: url(../images/DSC-yosemite-forests.jpg) 50% 0 no-repeat; background-size: cover;  
   background-attachment: fixed;
 }
 
@@ -552,7 +577,7 @@ h3, h4, h5, h6, p, div {
 }
 
 #climate-home { 
-  background: url(../images/DSC_7330.jpg) 50% 0 no-repeat; background-size: cover;
+  background: url(../images/DSC-denver-forests.jpg) 50% 0 no-repeat; background-size: cover;
   background-attachment: fixed;
 }
 #climate-overview {
@@ -572,7 +597,7 @@ h3, h4, h5, h6, p, div {
   background-attachment: fixed;
 }
 #climate-temp {
-  background: url(../images/image_6.jpg) 50% 0 no-repeat; background-size: cover;
+  background: url(../images/DSC-ca-redwood-forest.jpg) 50% 0 no-repeat; background-size: cover;
   background-attachment: fixed;
 }
 #climate-precip {
@@ -628,7 +653,7 @@ h3, h4, h5, h6, p, div {
 }
 
 #lost-main {
-  background: url(../images/DSC_6052.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+  background: url(../images/DSC-portland-forests.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
 }
 
 #lost-summary {
@@ -664,7 +689,7 @@ h3, h4, h5, h6, p, div {
 }
 
 #about-1 {
-  background: url(../images/DSC_5690.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+  background: url(../images/DSC-ca-oaks.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
 }
 #about-2 {
   background: url(../images/DSC_4382.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
@@ -746,7 +771,7 @@ div.globe-logo {
   padding-left: 25px;
   padding-right: 25px;
   background-repeat: no-repeat;
-  background: url(../images/globe_green.png);
+  background: url(../images/globe_green.png), url(../images/globe_green_red.png) 0 0;
 //  background-position-y: 1px;
 //  background-position-x: -1px;
 }
@@ -1165,10 +1190,16 @@ div.snow_water {
   content: url(../images/7_SW_snow_water.png) no-repeat 0 0;
 }
 div.precip-change {
-  width: 500px;
+  width: 700px;
   margin-left: auto;
   margin-right: auto;
-  content: url(../images/6_CS_seasonal_precip_projections_RCP-NO_TITLE_V8.png) no-repeat 0 0;
+  content: url(../images/precip-change.jpg) no-repeat 0 0;
+}
+div.precip-change-legend {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(../images/precip-change-legend.jpg) no-repeat 0 0;
 }
 div.forest-vulnerable {
   content: url(../images/8_Forests_climate_envelope_analysis_V3.png) no-repeat 0 0;
@@ -2154,7 +2185,7 @@ img.img-fig {
 
 .btn-chart {
   padding: 0;
-  margin: 0 2% 2% 2%;
+  margin-bottom: 2%;
   height: 100%;
   background: none;
   background-image: none;
@@ -2176,6 +2207,10 @@ img.img-fig {
   -moz-box-shadow: none;
   box-shadow: none;
   color:#bf3604;
+}
+
+.btn-chart-active {
+  color: red;
 }
 
 #chartContainer {
@@ -2302,15 +2337,19 @@ div.down-arrow {
   position: absolute;
   bottom: 20px !important;
   margin: 0px 0px 1% 0px;
+  cursor: pointer;
 }
 
 .svg-down-arrow {
-  background-image: url(../images/down-arrow-white.svg);
+  background-image: url(../images/down-arrow-white.svg), url(../images/down-arrow-red.svg);
 //  background-image: url(../images/arrow-right.svg);
   background-repeat: no-repeat;
   background-position: center;
   height: 95px;
   width: 50px;
+}
+.svg-down-arrow:hover {
+  background-image: url(../images/down-arrow-red.svg);
 }
 
 .mountain {
