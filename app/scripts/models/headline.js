@@ -10,6 +10,7 @@ Forests.Headline = DS.Model.extend({
   local         : DS.attr(),
   down          : DS.attr(),
   mountainTitle : DS.attr(),
+  bottom        : DS.attr(),
 
   skrolrId: function() {
     return '#' + this.get('classId');
@@ -316,38 +317,35 @@ Forests.Headline.FIXTURES = [{
   pageId: 'about',
   detail: '<div class=\"row textMd centerAlign about-padding\"><div class="col-md-1"></div><div class="col-md-10 about-h1"><h1>Aspen Center for Environmental Studies (ACES)</h1><p>ACES is a non-profit environmental science education center with four sites in Colorado\'s Roaring For Valley. ACES provides programs in environmental science and ecological literacy for everyone from school children, to leaders and decision makers, working to build a community of knowledgeable, motivated, and capable environmental stewards.</p><p>ACES mission: \"To inspire a life-long commitment to the Earth by educating for environmental responsibility, conserving, and restoring the balance of natural communities and advancing the ethic that the Earth must be respected and nurtured\". has guided their programming since 1968.</p><p>Since then, ACES has set a high standard for land stewardship on our four sites. The 2012 addition of our For the Forest program expanded the influence of that ethic, creating a nexus between scientific research, conservation values, and active forest restoration. Their involvement with the the Future Forest Distribution Model, which seeks to bridge the gap between scientific research on climate change and public percetption, epitomize the larger goals of their program.</p></div><div class="col-md-1"></div></div>',
  down: 'n',
-},{
+}
+/*,{
   id: 38,
-  title: '',
   classId: 'about-7',
   orderId: 'ag',
   pageId: 'about',
   down: 'n',
-  details: ''
+  bottom: 'y'
 },{
   id: 39,
-  title: '',
   classId: 'summary-cite',
   orderId: 'wa',
   pageId: 'forest',
   down: 'n',
-  details: ''
+  bottom: 'y'
 },{
   id: 40,
-  title: '',
   classId: 'climate-cite',
   orderId: 'hb',
   pageId: 'climate',
   down: 'n',
-  details: ''
+  bottom: 'y'
 },{
   id: 41,
-  title: '',
   classId: 'lost-references',
   orderId: 'zf',
   pageId: 'lost',
   down: 'n',
-  details: '',
-}
+  bottom: 'y'
+}*/
 
 ];

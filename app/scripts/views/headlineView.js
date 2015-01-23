@@ -5,8 +5,13 @@ Forests.HeadlineView = Ember.View.extend({
   didInsertElement: function() {
     //var model = this.get('content');
     //console.log(model);
-    this.get('controller').getPositions(); 
-    this.get('controller').bindScrolling();
+    //this.get('controller').getPositions();
+    var controller = this.get('controller');
+    controller.set('classCounter', controller.get('classCounter') + 1);
+    console.log(controller.get('classCounter'));
+    if (controller.get('classCounter') === controller.get('classArray').length) {
+    controller.bindScrolling();
+    }
   },
   actions: {
   

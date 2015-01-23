@@ -4,6 +4,7 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
   sortAscending: true, //false = descending
   previousScroll: $(window).scrollTop(),
   classArray: [],
+  classCounter: 0,
 
   /*filteredHeadlines: function() {
     var page = this.get('page');
@@ -41,51 +42,81 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
     return res;
   },
 
+  comparePos: function(id, pos) {
+    console.log('comparePos called');
+     
+    var divSize = $(id).height();
+    var divTop = pos;
+    var divBottom = divTop + divSize;
+    var windowTop = $(window).scrollTop();
+    var windowSize = window.innerHeight; 
+    var windowBottom = windowTop + windowSize;
+    var scrollView = divSize * 0.8;
+    console.log("Top: " + windowTop + ", Bottom: " + windowBottom);
+    divId = id+ '-scroll';
+    if (((divTop + scrollView) > windowTop) && ((divBottom - scrollView) < windowBottom)) {
+      console.log(id + ' is at ' + pos  +' and is active');
+      $(divId).addClass('right-nav-active'); 
+    } else {
+      console.log(id +' is at '+ pos +' and is inactive');
+      $(divId).removeClass('right-nav-active'); 
+    }
+  },
+
   logId: function(elem,idx,arr) {
+    
+
     var id = '#'+elem;
     var pos = $(id).offset().top;
-    var arr = [];
-    arr[idx] = [id,  pos];
-     
-    return arr;
+    var tuple = [];
+    
+    tuple = [id,  pos];
+    this.comparePos(id, pos); 
+    //console.log(idx);
+    //console.log(tuple);
+    return tuple;
   },
   getPositions: function() {
+    console.log('getPositions called');
     var arr = this.get('classArray');
-    arr.forEach(this.logId);
+    console.log(arr);
+    var classList = [];
+    arr.forEach(this.logId, this);
+    
 
     return arr;
   },
 
+  highlightFirstDot: function() {
+    
+    var activeDot = this.get('classArray')[0];
+    var activeDotId = '#'+ activeDot + "-scroll";
+    console.log(typeof(activeDotId));
+
+    console.log($(activeDotId));
+    if (1 + 1 === 2) {
+    $(activeDotId).addClass('right-nav-active');
+    } else {
+      $(activeDotId).addClass('right-nav-active');
+    }
+     
+    console.log($(activeDotId).hasClass('right-nav-active'));
+  },
   modelDidChange: function() {
     console.info(this.get('model').type);
-    classArray = this.get('model').mapBy('classId');
+    this.set('classArray', this.get('model').mapBy('classId'));
+    this.set('classCounter', 0);
     //classArray.forEach(this.logId);
   }.observes('model.isLoaded'),
   bindScrolling: function(opts) {
     var onScroll, _this =this;
     //opts = opts || {debounce: 100};
      console.log("CONSOLE CAN YOU HEAR ME?");
-     //var model = _this.get('model');
-     //console.log(model.type);
-     //methods = this.getMethods(model);
-     //console.log(methods);
-
-
-      /*$('div.right-nav-icon').each(function(index) {
-        var navId = $(this).attr('id');
-        var headlineId  = "#" + navId.substring(0, navId.length - 7);
-        console.log(headlineId);
-        //arr.push(headlineId);
-        //ar.push(headlineId);
-        //console.log(ar);
-      });*/
-      //console.log(arr);
-
     
-
+     this.highlightFirstDot();
     onScroll = function() {
       //return _this.scrolled();
-      return _this.debounce(_this.headlineScrolled(), 200);
+      return _this.debounce(_this.headlineScrolled(), 2000);
     };
     $(document).bind('touchmove', onScroll);
     $(window).bind('scroll', onScroll);
@@ -112,16 +143,8 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
     };
   },
   headlineScrolled: function() {
-    var currentScroll = $(window).scrollTop();
-    var elems = this.getPositions();
-    console.log(elems);
-    if (currentScroll > this.get('previousScroll')) {
-      console.log('down');
-      
-    } else if (currentScroll < this.get('previousScroll')){
-      console.log('up');
-    } 
-    this.set('previousScroll', currentScroll);
+    this.getPositions();
+    //console.log(elems);
   },
 
   

@@ -73,9 +73,17 @@ div.right-nav-icon {
 div.right-nav-icon:active {
   content: url(../images/right-nav-circle-active.png) no-repeat 0 0;
 }
-div#rightNavContainer .active {
+div.right-nav-active {
   content: url(../images/right-nav-circle-active.png) no-repeat 0 0;
 }
+
+// Load right-nav-active on page load
+//div#climate-home-scroll {
+//  content: url(../images/right-nav-circle-active.png) !important;
+//}
+//div#rightNavContainer .active {
+//  content: url(../images/right-nav-circle-active.png) no-repeat 0 0;
+//}
 .nav  li {
   float: right;
 }
