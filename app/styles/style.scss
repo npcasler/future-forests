@@ -69,12 +69,17 @@ div#rightNavContainer {
 div.right-nav-icon {
   margin: 25px 0px 25px 0px;
   content: url(../images/right-nav-circle.png) no-repeat 0 0;
+  cursor: pointer;
+}
+div.right-nav-icon:hover {
+  content: url(../images/right-nav-circle-active.png) no-repeat 0 0;
 }
 div.right-nav-icon:active {
   content: url(../images/right-nav-circle-active.png) no-repeat 0 0;
 }
 div.right-nav-active {
   content: url(../images/right-nav-circle-active.png) no-repeat 0 0;
+  cursor: pointer;
 }
 
 // Load right-nav-active on page load
