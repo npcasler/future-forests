@@ -6,6 +6,7 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
   classArray: [],
   classCounter: 0,
 
+
   /*filteredHeadlines: function() {
     var page = this.get('page');
     
@@ -91,28 +92,38 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
     
     var activeDot = this.get('classArray')[0];
     var activeDotId = '#'+ activeDot + "-scroll";
-    console.log(typeof(activeDotId));
-
+    console.log("Active dot id is: ");
     console.log($(activeDotId));
-    if (1 + 1 === 2) {
-    $(activeDotId).addClass('right-nav-active');
-    } else {
-      $(activeDotId).addClass('right-nav-active');
-    }
-     
+    console.log("Does this exist? "+$(activeDotId).length);
     console.log($(activeDotId).hasClass('right-nav-active'));
+    if ($(activeDotId).hasClass('right-nav-active') === false) {
+    console.log('Adding right-nav-active class...');
+    $(activeDotId).addClass('right-nav-active');
+    } 
+     
+    console.log(activeDotId + " has active class: "+$(activeDotId).hasClass('right-nav-active'));
   },
   modelDidChange: function() {
     console.info(this.get('model').type);
     this.set('classArray', this.get('model').mapBy('classId'));
     this.set('classCounter', 0);
-    //classArray.forEach(this.logId);
+    var _this = this;
+    //THIS IS A HACK THAT SHOULD PROBABLY BE DONE MORE ELEGANTLY IN FUTURE
+    //highlightFirstDot will only work with a timer of 0
+    
+     setTimeout(function() {
+      console.log('Hello, Timer');
+      console.log(_this);
+      _this.highlightFirstDot();
+     }, 0);
   }.observes('model.isLoaded'),
   bindScrolling: function(opts) {
     var onScroll, _this =this;
     //opts = opts || {debounce: 100};
-     console.log("CONSOLE CAN YOU HEAR ME?");
     
+     console.log('highlightFirstDot - timer');
+     
+
      this.highlightFirstDot();
     onScroll = function() {
       //return _this.scrolled();
@@ -173,7 +184,7 @@ Forests.HeadlinesController = Ember.ArrayController.extend({
     var headlineId = '#'+headline;
     var scrollId = headlineId + '-scroll';
     console.log("ScrollId is "+scrollId);
-    $('body').scrollTo($(headlineId), {duration: 'slow', easing: 'swing'});
+    $('body').scrollTo($(headlineId), 1200, {easing: 'swing'});
     $(scrollId).addClass('active');
 
 

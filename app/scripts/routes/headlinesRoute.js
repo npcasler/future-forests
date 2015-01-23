@@ -17,13 +17,5 @@ Forests.HeadlinesRoute = Ember.Route.extend({
       this._super();
       window.scrollTo(0,120);
 
-      $('div.right-nav-icon').each(function(index) {
-        var navId = $(this).attr('id');
-        var headlineId  = "#" + navId.substring(0, navId.length - 7);
-        console.log(headlineId);
-        //arr.push(headlineId);
-        //ar.push(headlineId);
-        //console.log(ar);
-      });
   }
 });
